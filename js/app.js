@@ -18,10 +18,20 @@ let tablero = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
+
+let tetromino = [
+    [
+        [1, 1, 1],
+        [0, 1, 0],
+    ],[
+        [1, 1, 0],
+        [0, 1, 1],
+    ]
+]
 
 class Tetris{
     //construir tablero
@@ -50,6 +60,12 @@ class Tetris{
             for (let ejeX = 0; ejeX < this.tablero[ejeY].length; ejeX++) {
                 if (this.tablero[ejeY][ejeX] == 0) {
                     this.ctx.fillStyle = 'green';
+                    this.ctx.fillRect(ejeX * this.anchoCuadricula, ejeY * this.altoCuadricula, this.anchoCuadricula, this.altoCuadricula);
+                    this.ctx.strokeStyle = '#eee';
+                    this.ctx.strokeRect(ejeX * this.anchoCuadricula, ejeY * this.altoCuadricula, this.anchoCuadricula, this.altoCuadricula)
+                }
+                if (this.tablero[ejeY][ejeX] == 1) {
+                    this.ctx.fillStyle = 'red';
                     this.ctx.fillRect(ejeX * this.anchoCuadricula, ejeY * this.altoCuadricula, this.anchoCuadricula, this.altoCuadricula);
                     this.ctx.strokeStyle = '#eee';
                     this.ctx.strokeRect(ejeX * this.anchoCuadricula, ejeY * this.altoCuadricula, this.anchoCuadricula, this.altoCuadricula)
