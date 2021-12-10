@@ -27,11 +27,45 @@ let tetromino = [
     [
         [1, 1, 1],
         [0, 1, 0],
-    ],[
+    ],
+    [
         [1, 1, 0],
         [0, 1, 1],
+    ],
+    [
+        [0,0,0,0],
+    ],
+    [
+        [0,0],
+        [0,0],
+    ],
+    [
+        [0],
+        [0],
+        [0],
+        [0,0],
     ]
-]
+];
+
+let colores = [
+    "#ffd300",
+    "#de38c8",
+    "#652ec7",
+    "#33135c",
+    "#13ca91",
+    "#ff9472",
+    "#35212a",
+    "#ff8b8b",
+    "#28cf75",
+    "#00a9fe",
+    "#04005e",
+    "#120052",
+    "#272822",
+    "#f92672",
+    "#66d9ef",
+    "#a6e22e",
+    "#fd971f",
+];
 
 class Tetris{
     //construir tablero
@@ -68,6 +102,8 @@ class Tetris{
         }
     }
 }
+
+
 
 // Creacion del objeto
 let Tablero = new Tetris('canvas', tablero);
