@@ -1,0 +1,10 @@
+main {
+    display: flex;
+    width: 99vw;
+    justify-content: space-around;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
