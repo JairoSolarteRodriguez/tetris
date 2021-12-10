@@ -105,12 +105,13 @@ class Tetris{
     }
     //Selection of colors and shapes randomly
     getRandom (array) {
-        return Math.random() * array.length
+        return Math.floor(Math.random() * array.length)
     }
 
-    
-
 }
+
+
+ //
 
 
 
