@@ -23,6 +23,21 @@ let tablero = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
+let tetromino = [
+    [
+        [0,0,0,0]
+    ],[
+        [0,0]
+        [0,0]
+    ],[
+        [0]
+        [0]
+        [0]
+        [0,0]
+    ]
+]
+
+
 class Tetris{
     //construir tablero
     constructor(canvasId, tablero) {
@@ -58,6 +73,8 @@ class Tetris{
         }
     }
 }
+
+
 
 // Creacion del objeto
 let Tablero = new Tetris('canvas', tablero);
