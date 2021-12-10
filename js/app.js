@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-class Tetris {
-    constructor() {
-
-        //Variable del tablero
-        this.CANVAS;
-        //variable contexto
-        this.CTX;
-
-        //FPS
-        this.FPS = 50;
-
-        //Definir el ancho y alto del escenatio
-        this.anchoTablero = 41;
-        this.altoTablero = 41;
-
-        //Array
-=======
 class Tetris{
     //construir tablero
     constructor(canvasId) {
@@ -30,7 +12,6 @@ class Tetris{
         this.altoCuadricula = 41;
 
         //Array talero
->>>>>>> 29a526b23bb5273754e305c04ac5e41a2d6f3101
         this.tablero = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
