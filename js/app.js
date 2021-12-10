@@ -4,8 +4,8 @@
 //     }
 // }
 
-let Tetris = function() {
-    constructor(
-        this.a;
-    )
-}
+// let Tetris = function() {
+//     constructor(
+//         this.a;
+//     )
+// }
