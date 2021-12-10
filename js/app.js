@@ -64,12 +64,6 @@ class Tetris{
                     this.ctx.strokeStyle = '#eee';
                     this.ctx.strokeRect(ejeX * this.anchoCuadricula, ejeY * this.altoCuadricula, this.anchoCuadricula, this.altoCuadricula)
                 }
-                if (this.tablero[ejeY][ejeX] == 1) {
-                    this.ctx.fillStyle = 'red';
-                    this.ctx.fillRect(ejeX * this.anchoCuadricula, ejeY * this.altoCuadricula, this.anchoCuadricula, this.altoCuadricula);
-                    this.ctx.strokeStyle = '#eee';
-                    this.ctx.strokeRect(ejeX * this.anchoCuadricula, ejeY * this.altoCuadricula, this.anchoCuadricula, this.altoCuadricula)
-                }
             }
         }
     }
