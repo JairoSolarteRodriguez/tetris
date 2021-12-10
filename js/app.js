@@ -67,6 +67,8 @@ let colores = [
     "#fd971f",
 ];
 
+
+
 class Tetris{
     //construir tablero
     constructor(canvasId, tablero) {
@@ -99,11 +101,19 @@ class Tetris{
                     this.ctx.strokeRect(ejeX * this.anchoCuadricula, ejeY * this.altoCuadricula, this.anchoCuadricula, this.altoCuadricula)
                 }
             }
-        }
+        }        
     }
+    //Selection of colors and shapes randomly
+    getRandom (array) {
+        return Math.random() * array.length
+    }
+
+    
+
 }
 
 
 
 // Creacion del objeto
 let Tablero = new Tetris('canvas', tablero);
+
