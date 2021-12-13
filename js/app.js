@@ -24,36 +24,158 @@ let board = [
 
 //Draw tiles
 let tetromino = [
-    [
-        [2, 2, 2, 0],
-        [0, 2, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-    ],
-    [
-        [0, 0, 0, 0],
-        [3, 3, 0, 0],
-        [0, 3, 3, 0],
-        [0, 0, 0, 0],
-    ],
-    [
-        [0, 4, 0, 0],
-        [0, 4, 0, 0],
-        [0, 4, 0, 0],
-        [0, 4, 0, 0],
-    ],
-    [
-        [0, 0, 0, 0],
-        [0, 5, 5, 0],
-        [0, 5, 5, 0],
-        [0, 0, 0, 0],
-    ],
-    [
-        [0, 0, 0, 0],
-        [0, 6, 0, 0],
-        [0, 6, 0, 0],
-        [0, 6, 6, 0],
-    ]
+	[ //Shape 1
+		[
+			[0, 0, 0, 0],
+			[0, 7, 7, 0],
+			[0, 7, 7, 0],
+			[0, 0, 0, 0]
+		],
+
+		[
+			[0, 0, 0, 0],
+			[0, 7, 7, 0],
+			[0, 7, 7, 0],
+			[0, 0, 0, 0]
+		],
+
+		[
+			[0, 0, 0, 0],
+			[0, 7, 7, 0],
+			[0, 7, 7, 0],
+			[0, 0, 0, 0]
+		],
+
+		[
+			[0, 0, 0, 0],
+			[0, 7, 7, 0],
+			[0, 7, 7, 0],
+			[0, 0, 0, 0]
+		]
+	],
+
+	[ // Shape 2
+		[
+			[0, 0, 0, 0],
+			[2, 2, 2, 2],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0]
+		],
+
+		[
+			[0, 0, 2, 0],
+			[0, 0, 2, 0],
+			[0, 0, 2, 0],
+			[0, 0, 2, 0]
+		],
+
+		[
+			[0, 0, 0, 0],
+			[2, 2, 2, 2],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0]
+		],
+
+		[
+			[0, 0, 2, 0],
+			[0, 0, 2, 0],
+			[0, 0, 2, 0],
+			[0, 0, 2, 0]
+		]
+
+	],
+
+	[ //Shape 3
+		[
+			[0, 0, 0, 0],
+			[0, 0, 3, 3],
+			[0, 3, 3, 0],
+			[0, 0, 0, 0]
+		],
+
+		[
+			[0, 0, 3, 0],
+			[0, 0, 3, 3],
+			[0, 0, 0, 3],
+			[0, 0, 0, 0]
+		],
+
+		[
+			[0, 0, 0, 0],
+			[0, 3, 3, 0],
+			[0, 0, 3, 3],
+			[0, 0, 0, 0]
+		],
+
+		[
+			[0, 0, 0, 3],
+			[0, 0, 3, 3],
+			[0, 0, 3, 0],
+			[0, 0, 0, 0]
+		]
+
+	],
+
+	[ //Shape 4
+		[
+			[0, 0, 0, 0],
+			[0, 0, 4, 0],
+			[0, 0, 4, 0],
+			[0, 0, 4, 4]
+		],
+
+		[
+			[0, 0, 0, 0],
+			[0, 0, 4, 4],
+			[0, 0, 4, 0],
+			[0, 0, 4, 0]
+		],
+
+		[
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 0, 0, 4],
+			[0, 4, 4, 4]
+		],
+
+		[
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 4, 0, 0],
+			[0, 4, 4, 4]
+		]
+
+	],
+
+	[ //Shape 5
+		[
+			[0, 0, 0, 0],
+			[0, 5, 5, 5],
+			[0, 0, 5, 0],
+			[0, 0, 0, 0]
+		],
+
+		[
+			[0, 0, 0, 5],
+			[0, 0, 5, 5],
+			[0, 0, 0, 5],
+			[0, 0, 0, 0]
+		],
+
+		[
+			[0, 0, 5, 0],
+			[0, 5, 5, 5],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0]
+		],
+
+		[
+			[0, 0, 5, 0],
+			[0, 0, 5, 5],
+			[0, 0, 5, 0],
+			[0, 0, 0, 0]
+		]
+	],
 ];
 
 //token colors
@@ -78,6 +200,9 @@ let colors = [
 ];
 const boardHeight = 20;
 const boardWidth = 15;
+
+const widthShape = 41;
+const heightShape = 41;
 
 // Canva and context
 const CANVAS = document.getElementById('canvas');
@@ -115,20 +240,27 @@ class Tetris {
         }
     }
 
-    //Selection of colors and shapes randomly
-    getRandom(array) {
-        return Math.floor(Math.random() * array.length)
-    }
 }
 
-let Shape = function (color, Random, x, y) {
-    this.x = x;
-    this.y = y;
-    this.color = color;
-    this.widthShape = 41;
-    this.heightShape = 41;
-    this.Random = Random;
-    // console.log(this.Random);
+//Selection of colors and shapes randomly
+let getRandom = function(array) {
+    return Math.floor(Math.random() * array.length)
+}
+
+let Shape = function () {
+    this.x = 0;
+    this.y = 0;
+    this.color;
+    this.Random = 0; //type of shape
+    this.angle= 0; // 0 - 3
+
+    this.newShape= function(){
+        this.Random = getRandom(tetromino);
+        let color = getRandom(colors);
+        this.color = colors[color];
+        this.y = 0;
+        this.x = 5;
+    }
 
     this.draw = function () {
         // Tab with random color
@@ -136,29 +268,36 @@ let Shape = function (color, Random, x, y) {
             for(ejex = 0; ejex < 4; ejex++){
                 if(tetromino[this.Random][ejey][ejex] != 0){
                     ctx.fillStyle = this.color;
-                    ctx.fillRect((this.x + ejex) * this.widthShape, (this.y + ejey) * this.heightShape, this.widthShape, this.heightShape);
+                    ctx.fillRect((this.x + ejex) * widthShape, (this.y + ejey) * heightShape, widthShape, heightShape);
                     ctx.strokeStyle = '#eee';
-                    ctx.strokeRect((this.x + ejex) * this.widthShape, (this.y + ejey) * this.heightShape, this.widthShape, this.heightShape);
+                    ctx.strokeRect((this.x + ejex) * widthShape, (this.y + ejey) * heightShape, widthShape, heightShape);
                 }
             }
         }
     }
+    
 
     this.fijar = function () {
         console.log('fijada')
     }
 
     this.fallShape = function(){
-        console.log(this.colision(this.y, this.x));
         switch (this.colision(this.y, this.x)) {
             case true:
                 this.y;
+                this.newShape();
                 break;
             case false:
                 this.y++;
             default:
                 break;
         }
+    }
+
+    this.rotate = function(){
+        if (this.angle >= 3) {
+            this.angle = 0
+        } else {this.angle++};
     }
 
     this.right = function(){
@@ -194,18 +333,15 @@ let Shape = function (color, Random, x, y) {
 
         return result;
     }
+
+    // launch new shape
+    this.newShape();
 }
 
 class Game {
     init() {
-        let boardTetris = new Tetris(board);
-        let color = boardTetris.getRandom(colors);
-        color = colors[color];
-
-        let Random = boardTetris.getRandom(tetromino[0]);
-        let shape = new Shape(color, Random, 7, 3);
-        shape.draw();
-        
+        let boardTetris = new Tetris(board); // create board
+        let shape = new Shape(); // create shape
 
 
         //lectura de teclado || Cambiar por la lobrerias keyprss
@@ -216,6 +352,8 @@ class Game {
                 shape.right();
             } else if (tecla.key == 'ArrowLeft') {
                 shape.left();
+            } else if (tecla.key == 'w') {
+                shape.rotate();
             }
         });
 
