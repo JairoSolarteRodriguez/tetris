@@ -271,7 +271,7 @@ let Shape = function () {
     this.color = colors[color];
     this.y = 0;
     this.x = 5;
-  };
+
 
   this.draw = function () {
     // Tab with random color
@@ -295,11 +295,11 @@ let Shape = function () {
         }
       }
     }
-  };
+
 
   this.fijar = function () {
     console.log("fijada");
-  };
+
 
   this.fallShape = function () {
     switch (this.colision(this.y, this.x)) {
@@ -312,7 +312,7 @@ let Shape = function () {
       default:
         break;
     }
-  };
+
 
   this.rotate = function () {
     if (this.angle >= 3) {
@@ -320,25 +320,25 @@ let Shape = function () {
     } else {
       this.angle++;
     }
-  };
+
 
   this.right = function () {
     if (this.colision(this.y, this.x + 1) == false) {
       this.x++;
     }
-  };
+
 
   this.down = function () {
     if (this.colision(this.y, this.x) == false) {
       this.y++;
     }
-  };
+
 
   this.left = function () {
     if (this.colision(this.y, this.x - 1) == false) {
       this.x--;
     }
-  };
+
 
   this.colision = function (newY, newX) {
     let result = false;
@@ -354,68 +354,67 @@ let Shape = function () {
     }
 
     return result;
-  };
+
 
   // launch new shape
   this.newShape();
-};
+}
 
 class Game {
   init() {
-    let boardTetris = new Tetris(board); // create board
-    let shape = new Shape(); // create shape
-    let listener = new window.keypress.Listener();
+        let boardTetris = new Tetris(board); // create board
+        let shape = new Shape(); // create shape
+        let listener = new window.keypress.Listener();
 
+        //Use of keypress library
+        let my_scope = this;
+        let my_combos = listener.register_many([
+        {
+            keys: "up",
+            is_exclusive: true,
+            on_keydown: function () {
+            shape.rotate();
+            },
+            this: my_scope,
+        },
+        {
+            keys: "right",
+            is_exclusive: true,
+            on_keydown: function () {
+            shape.right();
+            },
+            this: my_scope,
+        },
+        {
+            keys: "left",
+            is_exclusive: true,
+            on_keydown: function () {
+            shape.left();
+            },
+            this: my_scope,
+        },
+        {
+            keys: "down",
+            is_exclusive: true,
+            on_keydown: function () {
+            shape.down();
+            },
+            this: my_scope,
+        },
+        ]);
 
-    //Use of keypress library
-    let my_scope = this;
-    let my_combos = listener.register_many([
-      {
-        keys: "up",
-        is_exclusive: true,
-        on_keydown: function () {
-          shape.rotate();
-        },
-        this: my_scope,
-      },
-      {
-        keys: "right",
-        is_exclusive: true,
-        on_keydown: function () {
-          shape.right();
-        },
-        this: my_scope,
-      },
-      {
-        keys: "left",
-        is_exclusive: true,
-        on_keydown: function () {
-          shape.left();
-        },
-        this: my_scope,
-      },
-      {
-        keys: "down",
-        is_exclusive: true,
-        on_keydown: function () {
-          shape.down();
-        },
-        this: my_scope,
-      },
-    ]);
- 
+        setInterval(function () {
+        boardTetris = new Tetris(board);
+        shape.draw();
+        }, 1000 / FPS);
 
-    setInterval(function () {
-      boardTetris = new Tetris(board);
-      shape.draw();
-    }, 1000 / FPS);
-
-    // falling shape
-    setInterval(function () {
-      shape.fallShape();
-    }, 10000 / FPS);
-  }
+        // falling shape
+        setInterval(function () {
+        shape.fallShape();
+        }, 10000 / FPS);
+    }
 }
+
 
 let game = new Game();
 game.init();
