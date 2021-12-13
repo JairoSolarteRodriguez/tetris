@@ -1,5 +1,5 @@
-//Array talero
-let tablero = [
+//Array board
+let board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -23,31 +23,39 @@ let tablero = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
+//Draw tiles
 let tetromino = [
     [
-        [1, 1, 1],
-        [0, 1, 0],
+        [1, 1, 1, 0],
+        [0, 1, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
     ],
     [
-        [1, 1, 0],
-        [0, 1, 1],
+        [0, 0, 0, 0],
+        [1, 1, 0, 0],
+        [0, 1, 1, 0],
+        [0, 0, 0, 0],
     ],
     [
-        [0,0,0,0],
+        [0,1,0,0],
+        [0,1,0,0],
+        [0,1,0,0],
+        [0,1,0,0],
     ],
     [
-        [0,0],
-        [0,0],
+        [1,1],
+        [1,1],
     ],
     [
-        [0],
-        [0],
-        [0],
-        [0,0],
+        [0,1,0],
+        [0,1,0],
+        [0,1,1],
     ]
 ];
 
-let colores = [
+//token colors
+let colors = [
     "#ffd300",
     "#de38c8",
     "#652ec7",
@@ -74,27 +82,27 @@ const FPS = 50;
 
 class Tetris{
     //construir tablero
-    constructor(tablero) {
+    constructor(board) {
         // Obtenemos el tablero que pasamos por parametros
-        this.tablero = tablero;        
+        this.board = board;        
 
-        //Definir el ancho y alto del la cuadricula
-        this.anchoCuadricula = 41;
-        this.altoCuadricula = 41;
+        //Define the width and height of the grid
+        this.gridWidth = 41;
+        this.gridHeigth = 41;
 
-        // Definimos el ancho y alto del tablero deacuerdo a las medidas de la cuadricula
-        CANVAS.width = this.anchoCuadricula * 15;
-        CANVAS.height = this.anchoCuadricula * 20;
+        // We define the width and height of the board according to the measurements of the grid
+        CANVAS.width = this.gridWidth * 15;
+        CANVAS.height = this.gridWidth * 20;
 
-        // Recorremos el primer nivel del array
-        for (let ejeY = 0; ejeY < this.tablero.length; ejeY++) {
-            //recorrer subíndices
-            for (let ejeX = 0; ejeX < this.tablero[ejeY].length; ejeX++) {
-                if (this.tablero[ejeY][ejeX] == 0) {
+        // We go through the first level of the array
+        for (let ejeY = 0; ejeY < this.board.length; ejeY++) {
+            //loop subscripts
+            for (let ejeX = 0; ejeX < this.board[ejeY].length; ejeX++) {
+                if (this.board[ejeY][ejeX] == 0) {
                     ctx.fillStyle = 'green';
-                    ctx.fillRect(ejeX * this.anchoCuadricula, ejeY * this.altoCuadricula, this.anchoCuadricula, this.altoCuadricula);
+                    ctx.fillRect(ejeX * this.gridWidth, ejeY * this.gridHeigth, this.gridWidth, this.gridHeigth);
                     ctx.strokeStyle = '#eee';
-                    ctx.strokeRect(ejeX * this.anchoCuadricula, ejeY * this.altoCuadricula, this.anchoCuadricula, this.altoCuadricula);
+                    ctx.strokeRect(ejeX * this.gridWidth, ejeY * this.gridHeigth, this.gridWidth, this.gridHeigth)
                 }
             }
         }        
@@ -104,6 +112,10 @@ class Tetris{
     getRandom (array) {
         return Math.floor(Math.random() * array.length)
     }
+
+    
+    //Random color is assigned to random Tetromino
+    
 
 }
 
@@ -134,23 +146,23 @@ let Shape = function(color, x, y) {
 
     this.fallShape = function(){
         this.y++;
-        let currenPosition = tablero[this.y][this.x];
+        let currenPosition = board[this.y][this.x];
         this.colision(currenPosition, 'down');
     }
 
     this.down = function(){
         this.y++;
-        let currenPosition = tablero[this.y][this.x];
+        let currenPosition = board[this.y][this.x];
         this.colision(currenPosition, 'down');
     }
     this.right = function(){
         this.x++;
-        let currenPosition = tablero[this.y][this.x];
+        let currenPosition = board[this.y][this.x];
         this.colision(currenPosition, 'right');
     }
     this.left = function(){
         this.x--;
-        let currenPosition = tablero[this.y][this.x];
+        let currenPosition = board[this.y][this.x];
         this.colision(currenPosition, 'left');
     }
 
@@ -168,9 +180,9 @@ let Shape = function(color, x, y) {
 
 class Game{
     init(){
-        let tableroTetris = new Tetris(tablero);
-        let color = tableroTetris.getRandom(colores);
-        color = colores[color];
+        let boardTetris = new Tetris(board);
+        let color = boardTetris.getRandom(colors);
+        color = colors[color];
         let shape = new Shape(color, 7, 0);
         shape.draw();
 
@@ -187,7 +199,7 @@ class Game{
         });
 
         setInterval(function() {
-            tableroTetris = new Tetris(tablero);
+            boardTetris = new Tetris(board);
             shape.draw();
         },1000/FPS);
 
