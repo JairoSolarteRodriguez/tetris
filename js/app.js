@@ -24,158 +24,158 @@ let board = [
 
 // Draw Shapes
 let tetromino = [
-	[ //Shape 1
-		[
-			[0, 0, 0, 0],
-			[0, 7, 7, 0],
-			[0, 7, 7, 0],
-			[0, 0, 0, 0]
-		],
+    [ //Shape 1
+        [
+            [0, 0, 0, 0],
+            [0, 7, 7, 0],
+            [0, 7, 7, 0],
+            [0, 0, 0, 0]
+        ],
 
-		[
-			[0, 0, 0, 0],
-			[0, 7, 7, 0],
-			[0, 7, 7, 0],
-			[0, 0, 0, 0]
-		],
+        [
+            [0, 0, 0, 0],
+            [0, 7, 7, 0],
+            [0, 7, 7, 0],
+            [0, 0, 0, 0]
+        ],
 
-		[
-			[0, 0, 0, 0],
-			[0, 7, 7, 0],
-			[0, 7, 7, 0],
-			[0, 0, 0, 0]
-		],
+        [
+            [0, 0, 0, 0],
+            [0, 7, 7, 0],
+            [0, 7, 7, 0],
+            [0, 0, 0, 0]
+        ],
 
-		[
-			[0, 0, 0, 0],
-			[0, 7, 7, 0],
-			[0, 7, 7, 0],
-			[0, 0, 0, 0]
-		]
-	],
+        [
+            [0, 0, 0, 0],
+            [0, 7, 7, 0],
+            [0, 7, 7, 0],
+            [0, 0, 0, 0]
+        ]
+    ],
 
-	[ // Shape 2
-		[
-			[0, 0, 0, 0],
-			[2, 2, 2, 2],
-			[0, 0, 0, 0],
-			[0, 0, 0, 0]
-		],
+    [ // Shape 2
+        [
+            [0, 0, 0, 0],
+            [2, 2, 2, 2],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+        ],
 
-		[
-			[0, 0, 2, 0],
-			[0, 0, 2, 0],
-			[0, 0, 2, 0],
-			[0, 0, 2, 0]
-		],
+        [
+            [0, 0, 2, 0],
+            [0, 0, 2, 0],
+            [0, 0, 2, 0],
+            [0, 0, 2, 0]
+        ],
 
-		[
-			[0, 0, 0, 0],
-			[2, 2, 2, 2],
-			[0, 0, 0, 0],
-			[0, 0, 0, 0]
-		],
+        [
+            [0, 0, 0, 0],
+            [2, 2, 2, 2],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+        ],
 
-		[
-			[0, 0, 2, 0],
-			[0, 0, 2, 0],
-			[0, 0, 2, 0],
-			[0, 0, 2, 0]
-		]
+        [
+            [0, 0, 2, 0],
+            [0, 0, 2, 0],
+            [0, 0, 2, 0],
+            [0, 0, 2, 0]
+        ]
 
-	],
+    ],
 
-	[ //Shape 3
-		[
-			[0, 0, 0, 0],
-			[0, 0, 3, 3],
-			[0, 3, 3, 0],
-			[0, 0, 0, 0]
-		],
+    [ //Shape 3
+        [
+            [0, 0, 0, 0],
+            [0, 0, 3, 3],
+            [0, 3, 3, 0],
+            [0, 0, 0, 0]
+        ],
 
-		[
-			[0, 0, 3, 0],
-			[0, 0, 3, 3],
-			[0, 0, 0, 3],
-			[0, 0, 0, 0]
-		],
+        [
+            [0, 0, 3, 0],
+            [0, 0, 3, 3],
+            [0, 0, 0, 3],
+            [0, 0, 0, 0]
+        ],
 
-		[
-			[0, 0, 0, 0],
-			[0, 3, 3, 0],
-			[0, 0, 3, 3],
-			[0, 0, 0, 0]
-		],
+        [
+            [0, 0, 0, 0],
+            [0, 3, 3, 0],
+            [0, 0, 3, 3],
+            [0, 0, 0, 0]
+        ],
 
-		[
-			[0, 0, 0, 3],
-			[0, 0, 3, 3],
-			[0, 0, 3, 0],
-			[0, 0, 0, 0]
-		]
+        [
+            [0, 0, 0, 3],
+            [0, 0, 3, 3],
+            [0, 0, 3, 0],
+            [0, 0, 0, 0]
+        ]
 
-	],
+    ],
 
-	[ //Shape 4
-		[
-			[0, 0, 0, 0],
-			[0, 0, 4, 0],
-			[0, 0, 4, 0],
-			[0, 0, 4, 4]
-		],
+    [ //Shape 4
+        [
+            [0, 0, 0, 0],
+            [0, 0, 4, 0],
+            [0, 0, 4, 0],
+            [0, 0, 4, 4]
+        ],
 
-		[
-			[0, 0, 0, 0],
-			[0, 0, 4, 4],
-			[0, 0, 4, 0],
-			[0, 0, 4, 0]
-		],
+        [
+            [0, 0, 0, 0],
+            [0, 0, 4, 4],
+            [0, 0, 4, 0],
+            [0, 0, 4, 0]
+        ],
 
-		[
-			[0, 0, 0, 0],
-			[0, 0, 0, 0],
-			[0, 0, 0, 4],
-			[0, 4, 4, 4]
-		],
+        [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 4],
+            [0, 4, 4, 4]
+        ],
 
-		[
-			[0, 0, 0, 0],
-			[0, 0, 0, 0],
-			[0, 4, 0, 0],
-			[0, 4, 4, 4]
-		]
+        [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 4, 0, 0],
+            [0, 4, 4, 4]
+        ]
 
-	],
+    ],
 
-	[ //Shape 5
-		[
-			[0, 0, 0, 0],
-			[0, 5, 5, 5],
-			[0, 0, 5, 0],
-			[0, 0, 0, 0]
-		],
+    [ //Shape 5
+        [
+            [0, 0, 0, 0],
+            [0, 5, 5, 5],
+            [0, 0, 5, 0],
+            [0, 0, 0, 0]
+        ],
 
-		[
-			[0, 0, 0, 5],
-			[0, 0, 5, 5],
-			[0, 0, 0, 5],
-			[0, 0, 0, 0]
-		],
+        [
+            [0, 0, 0, 5],
+            [0, 0, 5, 5],
+            [0, 0, 0, 5],
+            [0, 0, 0, 0]
+        ],
 
-		[
-			[0, 0, 5, 0],
-			[0, 5, 5, 5],
-			[0, 0, 0, 0],
-			[0, 0, 0, 0]
-		],
+        [
+            [0, 0, 5, 0],
+            [0, 5, 5, 5],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+        ],
 
-		[
-			[0, 0, 5, 0],
-			[0, 0, 5, 5],
-			[0, 0, 5, 0],
-			[0, 0, 0, 0]
-		]
-	],
+        [
+            [0, 0, 5, 0],
+            [0, 0, 5, 5],
+            [0, 0, 5, 0],
+            [0, 0, 0, 0]
+        ]
+    ],
 ];
 //token colors
 let colors = [
@@ -229,7 +229,7 @@ class Tetris {
         // We go through the first level of the array
         for (let ejeY = 0; ejeY < boardHeight; ejeY++) {
             //loop subscripts
-            for (let ejeX = 1; ejeX < boardWidth+1; ejeX++) {
+            for (let ejeX = 1; ejeX < boardWidth + 1; ejeX++) {
                 if (this.board[ejeY][ejeX] == 0) {
                     ctx.fillStyle = 'green';
                     ctx.fillRect(ejeX * this.gridWidth, (ejeY + 1) * this.gridHeigth, this.gridWidth, this.gridHeigth);
@@ -244,7 +244,7 @@ class Tetris {
 }
 
 //Selection of colors and shapes randomly
-let getRandom = function(array) {
+let getRandom = function (array) {
     return Math.floor(Math.random() * array.length)
 }
 
@@ -253,9 +253,9 @@ let Shape = function () {
     this.y = 0;
     this.color;
     this.Random = 0; //type of shape
-    this.angle= 0; // 0 - 3
+    this.angle = 0; // 0 - 3
 
-    this.newShape= function(){
+    this.newShape = function () {
         this.Random = getRandom(tetromino);
         let color = getRandom(colors);
         this.color = colors[color];
@@ -263,14 +263,14 @@ let Shape = function () {
         this.x = 5;
     }
 
-    this.getCurrentColor = function(){
+    this.getCurrentColor = function () {
         return this.color;
     }
 
-    this.gameOver = function(){
+    this.gameOver = function () {
         let lose = false;
-        for(axisX = 1; axisX < widthShape + 1; axisX++){
-            if(board[2][axisX] > 0){
+        for (axisX = 1; axisX < widthShape + 1; axisX++) {
+            if (board[2][axisX] > 0) {
                 lose = true;
             }
         }
@@ -279,9 +279,9 @@ let Shape = function () {
 
     this.draw = function () {
         // Tab with random color
-        for(ejey = 0; ejey < 4; ejey++){
-            for(ejex = 0; ejex < 4; ejex++){
-                if(tetromino[this.Random][this.angle][ejey][ejex] != 0){
+        for (ejey = 0; ejey < 4; ejey++) {
+            for (ejex = 0; ejex < 4; ejex++) {
+                if (tetromino[this.Random][this.angle][ejey][ejex] != 0) {
                     ctx.fillStyle = this.color;
                     ctx.fillRect((this.x + ejex) * widthShape, (this.y + ejey) * heightShape, widthShape, heightShape);
                     ctx.strokeStyle = '#eee';
@@ -290,25 +290,25 @@ let Shape = function () {
             }
         }
     }
-    
 
-    this.fix = function(){
-        for(axisY = 0; axisY < 4; axisY++){
-            for(axisX = 0; axisX < 4; axisX++){
-                if(tetromino[this.Random][this.angle][axisY][axisX] != 0){
+
+    this.fix = function () {
+        for (axisY = 0; axisY < 4; axisY++) {
+            for (axisX = 0; axisX < 4; axisX++) {
+                if (tetromino[this.Random][this.angle][axisY][axisX] != 0) {
                     board[this.y + axisY][this.x + axisX] = tetromino[this.Random][this.angle][axisY][axisX];
                 }
             }
         }
     }
 
-    this.fallShape = function(){
+    this.fallShape = function () {
         switch (this.colision(this.angle, this.y, this.x)) {
             case true:
                 this.y--;
                 this.fix();
                 this.newShape();
-                if(this.gameOver()){
+                if (this.gameOver()) {
                     console.log('perdiste')
                     // this.resetBoard();
                 }
@@ -320,45 +320,45 @@ let Shape = function () {
         }
     }
 
-    this.rotate = function(){
+    this.rotate = function () {
         let newAngle = this.angle;
 
-        if(newAngle >= 3){
+        if (newAngle >= 3) {
             newAngle = 0;
-        }else{
+        } else {
             newAngle++;
         }
 
-        if(this.colision(newAngle, this.y, this.x) == false){
+        if (this.colision(newAngle, this.y, this.x) == false) {
             this.angle = newAngle;
         }
     }
 
-    this.right = function(){
-        if(this.colision(this.angle, this.y, this.x+1) == false){
+    this.right = function () {
+        if (this.colision(this.angle, this.y, this.x + 1) == false) {
             this.x++;
         }
     }
 
-    this.down = function(){
-        if(this.colision(this.angle, this.y, this.x) == false){
+    this.down = function () {
+        if (this.colision(this.angle, this.y, this.x) == false) {
             this.y++;
         }
     }
 
-    this.left = function(){
-        if(this.colision(this.angle, this.y, this.x-1) == false){
+    this.left = function () {
+        if (this.colision(this.angle, this.y, this.x - 1) == false) {
             this.x--;
         }
     }
 
-    this.colision = function(newAngle, newY, newX){
+    this.colision = function (newAngle, newY, newX) {
         let result = false;
 
-        for(axisY = 0; axisY < 4; axisY++){
-            for(axisX = 0; axisX < 4; axisX++){
-                if(tetromino[this.Random][newAngle][axisY][axisX] > 0){
-                    if(board[newY+axisY][newX+axisX] > 0){
+        for (axisY = 0; axisY < 4; axisY++) {
+            for (axisX = 0; axisX < 4; axisX++) {
+                if (tetromino[this.Random][newAngle][axisY][axisX] > 0) {
+                    if (board[newY + axisY][newX + axisX] > 0) {
                         result = true;
                     }
                 }
@@ -375,7 +375,7 @@ let Shape = function () {
 class Game {
     init() {
         let boardTetris = new Tetris(board); // create board
-        
+
         let shape = new Shape(); // create shape
         shape.draw();
 
@@ -383,12 +383,11 @@ class Game {
 
         //Use of keypress library
         let my_scope = this;
-        let my_combos = listener.register_many([
-            {
+        let my_combos = listener.register_many([{
                 keys: "up",
                 is_exclusive: true,
                 on_keydown: function () {
-                shape.rotate();
+                    shape.rotate();
                 },
                 this: my_scope,
             },
@@ -396,7 +395,7 @@ class Game {
                 keys: "right",
                 is_exclusive: true,
                 on_keydown: function () {
-                shape.right();
+                    shape.right();
                 },
                 this: my_scope,
             },
@@ -404,7 +403,7 @@ class Game {
                 keys: "left",
                 is_exclusive: true,
                 on_keydown: function () {
-                shape.left();
+                    shape.left();
                 },
                 this: my_scope,
             },
@@ -412,7 +411,7 @@ class Game {
                 keys: "down",
                 is_exclusive: true,
                 on_keydown: function () {
-                shape.down();
+                    shape.down();
                 },
                 this: my_scope,
             },
