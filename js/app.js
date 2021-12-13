@@ -130,8 +130,8 @@ let Shape = function(color, Random, x, y) {
 
     this.draw = function(){
         // Tab with random color
-        for (let ejey = 0; ejey < tetromino[0][this.Random].length; ejey++) {
-            for (let ejex = 0; ejex < tetromino.length; ejex++) {
+        for (let ejey = 0; ejey < tetromino[0][this.Random].length;  ejey++) {
+            for (let ejex = 0; ejex < 4; ejex++) {
                 if (tetromino[ejey][ejex] != 0) {                    
                     ctx.fillStyle = this.color;
                     ctx.fillRect(this.x * this.widthShape, this.y * this.heightShape, this.widthShape, this.heightShape);
@@ -195,6 +195,7 @@ class Game{
         Random = tetromino[0][Random];
         let shape = new Shape(color, Random, 7, 0);
         shape.draw();
+        
 
 
         //lectura de teclado
