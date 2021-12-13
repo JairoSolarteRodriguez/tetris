@@ -379,18 +379,44 @@ class Game {
         let shape = new Shape(); // create shape
         shape.draw();
 
-        //lectura de teclado || Cambiar por la lobrerias keyprss
-        document.addEventListener('keydown', function (tecla) {
-            if (tecla.key == 'ArrowDown') {
-                shape.down();
-            } else if (tecla.key == 'ArrowRight') {
-                shape.right();
-            } else if (tecla.key == 'ArrowLeft') {
-                shape.left();
-            } else if (tecla.key == 'w') {
+        let listener = new window.keypress.Listener();
+
+        //Use of keypress library
+        let my_scope = this;
+        let my_combos = listener.register_many([
+            {
+                keys: "up",
+                is_exclusive: true,
+                on_keydown: function () {
                 shape.rotate();
-            }
-        });
+                },
+                this: my_scope,
+            },
+            {
+                keys: "right",
+                is_exclusive: true,
+                on_keydown: function () {
+                shape.right();
+                },
+                this: my_scope,
+            },
+            {
+                keys: "left",
+                is_exclusive: true,
+                on_keydown: function () {
+                shape.left();
+                },
+                this: my_scope,
+            },
+            {
+                keys: "down",
+                is_exclusive: true,
+                on_keydown: function () {
+                shape.down();
+                },
+                this: my_scope,
+            },
+        ]);
 
         setInterval(function () {
             shape.fallShape();
