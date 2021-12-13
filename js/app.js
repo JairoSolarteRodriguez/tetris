@@ -258,7 +258,7 @@ let Shape = function () {
         this.Random = getRandom(tetromino);
         let color = getRandom(colors);
         this.color = colors[color];
-        this.y = 0;
+        this.y = 4;
         this.x = 5;
     }
 
@@ -266,7 +266,7 @@ let Shape = function () {
         // Tab with random color
         for(ejey = 0; ejey < 4; ejey++){
             for(ejex = 0; ejex < 4; ejex++){
-                if(tetromino[this.Random][ejey][ejex] != 0){
+                if(tetromino[this.Random][this.angle][ejey][ejex] != 0){
                     ctx.fillStyle = this.color;
                     ctx.fillRect((this.x + ejex) * widthShape, (this.y + ejey) * heightShape, widthShape, heightShape);
                     ctx.strokeStyle = '#eee';
@@ -282,7 +282,7 @@ let Shape = function () {
     }
 
     this.fallShape = function(){
-        switch (this.colision(this.y, this.x)) {
+        switch (this.colision(this.angle, this.y, this.x)) {
             case true:
                 this.y;
                 this.newShape();
@@ -295,35 +295,43 @@ let Shape = function () {
     }
 
     this.rotate = function(){
-        if (this.angle >= 3) {
-            this.angle = 0
-        } else {this.angle++};
+        let newAngle = this.angle;
+
+        if(newAngle >= 3){
+            newAngle = 0;
+        }else{
+            newAngle++;
+        }
+
+        if(this.colision(newAngle, this.y, this.x) == false){
+            this.angle = newAngle;
+        }
     }
 
     this.right = function(){
-        if(this.colision(this.y, this.x+1) == false){
+        if(this.colision(this.angle, this.y, this.x+1) == false){
             this.x++;
         }
     }
 
     this.down = function(){
-        if(this.colision(this.y, this.x) == false){
+        if(this.colision(this.angle, this.y, this.x) == false){
             this.y++;
         }
     }
 
     this.left = function(){
-        if(this.colision(this.y, this.x-1) == false){
+        if(this.colision(this.angle, this.y, this.x-1) == false){
             this.x--;
         }
     }
 
-    this.colision = function(newY, newX){
+    this.colision = function(newAngle, newY, newX){
         let result = false;
 
         for(axisY = 0; axisY < 4; axisY++){
             for(axisX = 0; axisX < 4; axisX++){
-                if(tetromino[this.Random][axisY][axisX] > 0){
+                if(tetromino[this.Random][newAngle][axisY][axisX] > 0){
                     if(board[newY+axisY][newX+axisX] > 0){
                         result = true;
                     }
