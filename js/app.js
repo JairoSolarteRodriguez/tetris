@@ -1,28 +1,28 @@
 //Array board
 let board = [
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
-//Draw tiles
+// Draw Shapes
 let tetromino = [
   [
     //Shape 1
@@ -179,7 +179,6 @@ let tetromino = [
     ],
   ],
 ];
-
 //token colors
 let colors = [
   "#ffd300",
@@ -212,10 +211,11 @@ let ctx = CANVAS.getContext("2d");
 const FPS = 50;
 
 class Tetris {
-  //construir tablero
+  //build board
   constructor(board) {
-    // Obtenemos el tablero que pasamos por parametros
+    //get board
     this.board = board;
+    this.color = 'blue';
 
     //Define the width and height of the grid
     this.gridWidth = 41;
@@ -226,27 +226,17 @@ class Tetris {
     CANVAS.height = this.gridWidth * 20;
 
     //we choose the tetromino as a parameter
-    this.tetromino = tetromino;
+    this.tetromino = tetromino
 
     // We go through the first level of the array
     for (let ejeY = 0; ejeY < boardHeight; ejeY++) {
       //loop subscripts
-      for (let ejeX = 0; ejeX < boardWidth; ejeX++) {
+      for (let ejeX = 1; ejeX < boardWidth + 1; ejeX++) {
         if (this.board[ejeY][ejeX] == 0) {
-          ctx.fillStyle = "green";
-          ctx.fillRect(
-            ejeX * this.gridWidth,
-            (ejeY + 1) * this.gridHeigth,
-            this.gridWidth,
-            this.gridHeigth
-          );
-          ctx.strokeStyle = "#eee";
-          ctx.strokeRect(
-            ejeX * this.gridWidth,
-            (ejeY + 1) * this.gridHeigth,
-            this.gridWidth,
-            this.gridHeigth
-          );
+          ctx.fillStyle = 'green';
+          ctx.fillRect(ejeX * this.gridWidth, (ejeY + 1) * this.gridHeigth, this.gridWidth, this.gridHeigth);
+          ctx.strokeStyle = '#eee';
+          ctx.strokeRect(ejeX * this.gridWidth, (ejeY + 1) * this.gridHeigth, this.gridWidth, this.gridHeigth);
         }
       }
     }
@@ -270,82 +260,111 @@ let Shape = function () {
     let color = getRandom(colors);
     this.color = colors[color];
     this.y = 0;
+  }
+  this.newShape = function () {
+    this.Random = getRandom(tetromino);
+    let color = getRandom(colors);
+    this.color = colors[color];
+    this.y = 0;
     this.x = 5;
-  };
+  }
+
+  this.getCurrentColor = function () {
+    return this.color;
+  }
+
+  this.gameOver = function () {
+    let lose = false;
+    for (axisX = 1; axisX < widthShape + 1; axisX++) {
+      if (board[2][axisX] > 0) {
+        lose = true;
+      }
+    }
+    return lose;
+  }
 
   this.draw = function () {
     // Tab with random color
     for (ejey = 0; ejey < 4; ejey++) {
       for (ejex = 0; ejex < 4; ejex++) {
-        if (tetromino[this.Random][ejey][ejex] != 0) {
+        if (tetromino[this.Random][this.angle][ejey][ejex] != 0) {
           ctx.fillStyle = this.color;
-          ctx.fillRect(
-            (this.x + ejex) * widthShape,
-            (this.y + ejey) * heightShape,
-            widthShape,
-            heightShape
-          );
-          ctx.strokeStyle = "#eee";
-          ctx.strokeRect(
-            (this.x + ejex) * widthShape,
-            (this.y + ejey) * heightShape,
-            widthShape,
-            heightShape
-          );
+          ctx.fillRect((this.x + ejex) * widthShape, (this.y + ejey) * heightShape, widthShape, heightShape);
+          ctx.strokeStyle = '#eee';
+          ctx.strokeRect((this.x + ejex) * widthShape, (this.y + ejey) * heightShape, widthShape, heightShape);
         }
       }
     }
-  };
+  }
 
-  this.fijar = function () {
-    console.log("fijada");
-  };
+
+
+  this.fix = function () {
+    for (axisY = 0; axisY < 4; axisY++) {
+      for (axisX = 0; axisX < 4; axisX++) {
+        if (tetromino[this.Random][this.angle][axisY][axisX] != 0) {
+          board[this.y + axisY][this.x + axisX] = tetromino[this.Random][this.angle][axisY][axisX];
+        }
+      }
+    }
+  }
 
   this.fallShape = function () {
-    switch (this.colision(this.y, this.x)) {
+    switch (this.colision(this.angle, this.y, this.x)) {
       case true:
-        this.y;
+        this.y--;
+        this.fix();
         this.newShape();
+        if (this.gameOver()) {
+          console.log('perdiste')
+          // this.resetBoard();
+        }
         break;
       case false:
         this.y++;
       default:
         break;
     }
-  };
+  }
 
   this.rotate = function () {
-    if (this.angle >= 3) {
-      this.angle = 0;
+    let newAngle = this.angle;
+
+    if (newAngle >= 3) {
+      newAngle = 0;
     } else {
-      this.angle++;
+      newAngle++;
     }
-  };
+
+    if (this.colision(newAngle, this.y, this.x) == false) {
+      this.angle = newAngle;
+    }
+  }
 
   this.right = function () {
-    if (this.colision(this.y, this.x + 1) == false) {
+    if (this.colision(this.angle, this.y, this.x + 1) == false) {
       this.x++;
     }
-  };
+  }
 
   this.down = function () {
-    if (this.colision(this.y, this.x) == false) {
+    if (this.colision(this.angle, this.y, this.x) == false) {
       this.y++;
     }
-  };
+  }
 
   this.left = function () {
-    if (this.colision(this.y, this.x - 1) == false) {
+    if (this.colision(this.angle, this.y, this.x - 1) == false) {
       this.x--;
     }
-  };
+  }
 
-  this.colision = function (newY, newX) {
+  this.colision = function (newAngle, newY, newX) {
     let result = false;
 
     for (axisY = 0; axisY < 4; axisY++) {
       for (axisX = 0; axisX < 4; axisX++) {
-        if (tetromino[this.Random][axisY][axisX] > 0) {
+        if (tetromino[this.Random][newAngle][axisY][axisX] > 0) {
           if (board[newY + axisY][newX + axisX] > 0) {
             result = true;
           }
@@ -353,24 +372,33 @@ let Shape = function () {
       }
     }
 
+
     return result;
-  };
+  }
+
 
   // launch new shape
   this.newShape();
-};
 
+}
 class Game {
   init() {
     let boardTetris = new Tetris(board); // create board
+
     let shape = new Shape(); // create shape
+    shape.draw();
+
     let listener = new window.keypress.Listener();
+
+
+    /* function updateScore () {
+      document.getElementById('score').innerHTML = //variable línea eliminada
+    } */
 
 
     //Use of keypress library
     let my_scope = this;
-    let my_combos = listener.register_many([
-      {
+    let my_combos = listener.register_many([{
         keys: "up",
         is_exclusive: true,
         on_keydown: function () {
@@ -403,19 +431,103 @@ class Game {
         this: my_scope,
       },
     ]);
- 
 
-    setInterval(function () {
-      boardTetris = new Tetris(board);
-      shape.draw();
-    }, 1000 / FPS);
-
-    // falling shape
     setInterval(function () {
       shape.fallShape();
+      boardTetris = new Tetris(board);
+      shape.draw();
     }, 10000 / FPS);
   }
 }
 
+
+
+const iniciarTemporizador = (minutos, segundos) => {
+  ocultarElemento($contenedorInputs);
+  mostrarElemento($btnPausar);
+  ocultarElemento($btnIniciar);
+  ocultarElemento($btnDetener);
+  if (fechaFuturo) {
+    fechaFuturo = new Date(new Date().getTime() + diferenciaTemporal);
+    console.log("Reanudar con diferencia de " + diferenciaTemporal);
+    diferenciaTemporal = 0;
+  } else {
+    console.log("Iniciar");
+    const milisegundos = (segundos + (minutos * 60)) * 1000;
+    fechaFuturo = new Date(new Date().getTime() + milisegundos);
+  }
+  clearInterval(idInterval);
+  idInterval = setInterval(() => {
+    const tiempoRestante = fechaFuturo.getTime() - new Date().getTime();
+    if (tiempoRestante <= 0) {
+      console.log("Tiempo terminado");
+      clearInterval(idInterval);
+      sonido.play();
+      ocultarElemento($btnPausar);
+      mostrarElemento($btnDetener);
+    } else {
+      $tiempoRestante.textContent = milisegundosAMinutosYSegundos(tiempoRestante);
+    }
+  }, 50);
+};
+
+
+
+
 let game = new Game();
 game.init();
+
+
+
+//TIMER
+
+
+let minutos = 0
+let segundos = 0
+
+
+//count seconds
+function cargarSegundo (){
+  let txtSegundos;
+
+  if(segundos < 0){
+    segundos = 59
+  }
+
+  //show seconds on screen
+  if (segundos < 10) {
+      txtSegundos = `0${segundos}`;
+  } else {
+      txtSegundos = segundos;
+  }
+  document.getElementById('segundos').innerHTML = txtSegundos;
+  segundos --;
+
+  cargarMinutos(segundos)
+}
+
+//count minute
+
+function cargarMinutos (segundos){
+  let txtMinutos;
+
+  if(segundos == -1 && minutos !== 0){
+    setTimeout(() => {
+      minutos--;
+    },500)
+  } else if(segundos == -1 && minutos == 0){
+    setTimeout(() => {
+      minutos = 59;
+    },500)
+  }
+
+  if(minutos < 10){
+    txtMinutos = `0${minutos}`;
+  } else {
+    txtMinutos = minutos;
+  }
+    document.getElementById('minutos').innerHTML = txtMinutos;
+}
+
+
+setInterval(cargarSegundo, 1000);
