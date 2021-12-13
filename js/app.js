@@ -1,25 +1,85 @@
-//Array board
+let canvas;
+let ctx;
+let FPS = 60;
+
+let widthBoard = 15;
+let heightBoard = 22;
+
+let widthWindow = window.innerWidth;
+
+let widthShape;
+let heightShape;
+
+if(widthWindow <= 500 ){
+    widthShape = 22;
+    heightShape = 22;
+}else if(widthWindow > 500 && widthWindow < 800){
+    widthShape = 32;
+    heightShape = 32;
+}else if(widthWindow > 800){
+    widthShape = 42;
+    heightShape = 42;
+}
+
+
+
+let widthCanvas = widthShape * 15;
+let heightCanvas = heightShape * 20;
+
+let topMargin = 4;
+
 let board = [
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+];
+
+let board2 = [
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
 
 // Draw Shapes
@@ -197,55 +257,26 @@ let colors = [
     "#a6e22e",
     "#fd971f",
 ];
-const boardHeight = 20;
-const boardWidth = 15;
-
-const widthShape = 41;
-const heightShape = 41;
-
-// Canva and context
-const CANVAS = document.getElementById('canvas');
-let ctx = CANVAS.getContext('2d');
-const FPS = 50;
-
-class Tetris {
-    //build board
-    constructor(board) {
-        //get board
-        this.board = board;
-        this.color = 'blue';
-
-        //Define the width and height of the grid
-        this.gridWidth = 41;
-        this.gridHeigth = 41;
-
-        // We define the width and height of the board according to the measurements of the grid
-        CANVAS.width = this.gridWidth * 15;
-        CANVAS.height = this.gridWidth * 20;
-
-        //we choose the tetromino as a parameter
-        this.tetromino = tetromino
-
-        // We go through the first level of the array
-        for (let ejeY = 0; ejeY < boardHeight; ejeY++) {
-            //loop subscripts
-            for (let ejeX = 1; ejeX < boardWidth + 1; ejeX++) {
-                if (this.board[ejeY][ejeX] == 0) {
-                    ctx.fillStyle = 'green';
-                    ctx.fillRect(ejeX * this.gridWidth, (ejeY + 1) * this.gridHeigth, this.gridWidth, this.gridHeigth);
-                    ctx.strokeStyle = '#eee';
-                    ctx.strokeRect(ejeX * this.gridWidth, (ejeY + 1) * this.gridHeigth, this.gridWidth, this.gridHeigth);
-                }
-            }
-        }
-
-    }
-
-}
 
 //Selection of colors and shapes randomly
 let getRandom = function (array) {
     return Math.floor(Math.random() * array.length)
+}
+
+let Tetris = function(){
+    this.drawBoard = function(){
+        // Recorremos el primer nivel del array
+        for (axisY = 0; axisY < board.length; axisY++) {
+            for (axisX = 0; axisX < board[axisY].length+1; axisX++) {
+                if (board[axisY][axisX] == 0) {
+                    ctx.fillStyle = 'green';
+                    ctx.fillRect((axisX - 1) * widthShape, (axisY - topMargin + 1) * heightShape, widthShape, heightShape);
+                    ctx.strokeStyle = '#eee';
+                    ctx.strokeRect((axisX - 1) * widthShape, (axisY - topMargin + 1) * heightShape, widthShape, heightShape);
+                }
+            }
+        } 
+    }
 }
 
 let Shape = function () {
@@ -260,64 +291,7 @@ let Shape = function () {
         let color = getRandom(colors);
         this.color = colors[color];
         this.y = 0;
-        this.x = 5;
-    }
-
-    this.getCurrentColor = function () {
-        return this.color;
-    }
-
-    this.gameOver = function () {
-        let lose = false;
-        for (axisX = 1; axisX < widthShape + 1; axisX++) {
-            if (board[2][axisX] > 0) {
-                lose = true;
-            }
-        }
-        return lose;
-    }
-
-    this.draw = function () {
-        // Tab with random color
-        for (ejey = 0; ejey < 4; ejey++) {
-            for (ejex = 0; ejex < 4; ejex++) {
-                if (tetromino[this.Random][this.angle][ejey][ejex] != 0) {
-                    ctx.fillStyle = this.color;
-                    ctx.fillRect((this.x + ejex) * widthShape, (this.y + ejey) * heightShape, widthShape, heightShape);
-                    ctx.strokeStyle = '#eee';
-                    ctx.strokeRect((this.x + ejex) * widthShape, (this.y + ejey) * heightShape, widthShape, heightShape);
-                }
-            }
-        }
-    }
-
-
-    this.fix = function () {
-        for (axisY = 0; axisY < 4; axisY++) {
-            for (axisX = 0; axisX < 4; axisX++) {
-                if (tetromino[this.Random][this.angle][axisY][axisX] != 0) {
-                    board[this.y + axisY][this.x + axisX] = tetromino[this.Random][this.angle][axisY][axisX];
-                }
-            }
-        }
-    }
-
-    this.fallShape = function () {
-        switch (this.colision(this.angle, this.y, this.x)) {
-            case true:
-                this.y--;
-                this.fix();
-                this.newShape();
-                if (this.gameOver()) {
-                    console.log('perdiste')
-                    // this.resetBoard();
-                }
-                break;
-            case false:
-                this.y++;
-            default:
-                break;
-        }
+        this.x = 7;
     }
 
     this.rotate = function () {
@@ -331,6 +305,20 @@ let Shape = function () {
 
         if (this.colision(newAngle, this.y, this.x) == false) {
             this.angle = newAngle;
+        }
+    }
+
+    this.draw = function(){
+        for(axisY = 0; axisY < 4; axisY++){
+            for(axisX = 0; axisX < 4; axisX++){
+                if(tetromino[this.Random][this.angle][axisY][axisX] != 0){
+                    ctx.fillStyle = this.color;
+                    ctx.fillRect((this.x + axisX - 1) * widthShape, (this.y + axisY - topMargin) * heightShape, widthShape, heightShape);
+                    
+                    ctx.strokeStyle = '#eee';
+                    ctx.strokeRect((this.x + axisX - 1) * widthShape, (this.y + axisY - topMargin) * heightShape, widthShape, heightShape);
+                }
+            }
         }
     }
 
@@ -352,6 +340,41 @@ let Shape = function () {
         }
     }
 
+    this.fallShape = function () {
+        switch (this.colision(this.angle, this.y, this.x)) {
+            case true:
+                this.y--;
+                this.fix();
+                this.newShape();
+                if (this.gameOver()) {
+                    this.resetBoard();
+                }
+                break;
+            case false:
+                this.y++;
+            default:
+                break;
+        }
+    }
+
+    this.resetBoard = function(){
+        for (axisY = 0; axisY <= heightBoard; axisY++) {
+            for (axisX = 0; axisX <= widthBoard; axisX++) {
+                board[axisY][axisX] = board2[axisY][axisX];
+            }
+        }
+    }
+    
+    this.gameOver = function(){
+        let lose = false;
+        for(axisX = 1; axisX < widthBoard + 1; axisX++){
+            if(board[2][axisX] != 0){
+                lose = true;
+            }
+        }
+        return lose;
+    }
+
     this.colision = function (newAngle, newY, newX) {
         let result = false;
 
@@ -368,64 +391,80 @@ let Shape = function () {
         return result;
     }
 
+    this.fix = function () {
+        for (axisY = 0; axisY < 4; axisY++) {
+            for (axisX = 0; axisX < 4; axisX++) {
+                if (tetromino[this.Random][this.angle][axisY][axisX] > 0) {
+                    board[this.y + axisY][this.x + axisX] = tetromino[this.Random][this.angle][axisY][axisX];
+                }
+            }
+        }
+    }
+
     // launch new shape
     this.newShape();
 }
 
-class Game {
-    init() {
-        let boardTetris = new Tetris(board); // create board
 
-        let shape = new Shape(); // create shape
+
+function init() {
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+
+    canvas.width = widthCanvas;
+    canvas.height = heightCanvas;
+
+    let boardTetris = new Tetris();
+    boardTetris.drawBoard();
+
+    let shape = new Shape();
+    shape.draw();
+
+    let listener = new window.keypress.Listener();
+
+    //Use of keypress library
+    let my_scope = this;
+    let my_combos = listener.register_many([{
+            keys: "up",
+            is_exclusive: true,
+            on_keydown: function () {
+                shape.rotate();
+            },
+            this: my_scope,
+        },
+        {
+            keys: "right",
+            is_exclusive: true,
+            on_keydown: function () {
+                shape.right();
+            },
+            this: my_scope,
+        },
+        {
+            keys: "left",
+            is_exclusive: true,
+            on_keydown: function () {
+                shape.left();
+            },
+            this: my_scope,
+        },
+        {
+            keys: "down",
+            is_exclusive: true,
+            on_keydown: function () {
+                shape.down();
+            },
+            this: my_scope,
+        },
+    ]);
+
+    setInterval(function () {
+        shape.fallShape();
+    }, 10000 / FPS);
+
+    setInterval(function () {
+        boardTetris.drawBoard();
         shape.draw();
-
-        let listener = new window.keypress.Listener();
-
-        //Use of keypress library
-        let my_scope = this;
-        let my_combos = listener.register_many([{
-                keys: "up",
-                is_exclusive: true,
-                on_keydown: function () {
-                    shape.rotate();
-                },
-                this: my_scope,
-            },
-            {
-                keys: "right",
-                is_exclusive: true,
-                on_keydown: function () {
-                    shape.right();
-                },
-                this: my_scope,
-            },
-            {
-                keys: "left",
-                is_exclusive: true,
-                on_keydown: function () {
-                    shape.left();
-                },
-                this: my_scope,
-            },
-            {
-                keys: "down",
-                is_exclusive: true,
-                on_keydown: function () {
-                    shape.down();
-                },
-                this: my_scope,
-            },
-        ]);
-
-        setInterval(function () {
-            shape.fallShape();
-            boardTetris = new Tetris(board);
-            shape.draw();
-        }, 10000 / FPS);
-    }
+    }, 1000 / FPS);
 }
 
-
-
-let game = new Game();
-game.init();

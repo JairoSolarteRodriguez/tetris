@@ -6,20 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
     <script src="./js/keypress-2.1.5.min.js"></script>
+    <script src="./js/app.js"></script>
     <title>Document</title>
 </head>
-<body>
+<body onload="init()">
     <header>
         <h1>El Mejor Juego de Tetris del Mundo</h1>
     </header>
     <main>
-        <div>
-            <h2>Tiempo</h2>
-            <h2>Puntaje</h2>
-            <h2>Controles</h2>
+        <div class="timer">
+            <p>Tiempo: 2:30</p>
+            <p>Puntaje: 1500</p>
+            <!-- <h2>Controles</h2> -->
         </div>
         <canvas id="canvas"></canvas>
+        <div class="controls">
+            <img src="./images/arrow-up.png" class="down" onclick="down()">
+            <img src="./images/arrow-up.png" class="left" onclick="left()">
+            <img src="./images/arrow-up.png" class="right" onclick="right()">
+            <img src="./images/rotate.png" class="rotate" onclick="rotate()">
+        </div>
     </main>
-    <script src="./js/app.js"></script>
 </body>
 </html>
