@@ -76,7 +76,6 @@ let colors = [
 ];
 
 //refresh variable
-let lastTime = 0;
 
 
 
@@ -101,6 +100,9 @@ class Tetris{
         this.CANVAS.width = this.gridWidth * 15;
         this.CANVAS.height = this.gridWidth * 20;
 
+        //we choose the tetromino as a parameter
+        this.tetromino = tetromino
+
         // We go through the first level of the array
         for (let ejeY = 0; ejeY < this.board.length; ejeY++) {
             //loop subscripts
@@ -115,13 +117,23 @@ class Tetris{
         }        
     }
     //Selection of colors and shapes randomly
-    getRandom (colors,) {
+    getRandom () {
         return Math.floor(Math.random() * array.length)
     }
 
     
     //Random color is assigned to random Tetromino
-    
+    tetrominoColorRandom () {
+    for (let ejeY = 0; ejeY < this.tetromino.length; ejeY++) {
+        if (this.tetromino[ejeY][ejeX] == 0) {
+            this.tetromino.fillStyle = this.getRandom(colors)
+            this.tetromino.fillRect() 
+        }
+
+    }
+    }
+
+
 
 }
 
@@ -133,23 +145,10 @@ class Tetris{
 
 
 
-
-
- function update (time = 0) {
-    const deltaTime = time - lastTime;
-    lastTime = time;
-    Tetris ()
-    requestAnimationFrame(update); 
-
-    
-}
-
-
-
-
 // Creacion del objeto
-let Tablero = new Tetris('canvas', board);
-update(50)
+let Tablero = new Tetris('canvas', board); 
+    
+
 
 //create update 
 
