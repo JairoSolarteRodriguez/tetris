@@ -7,6 +7,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -26,7 +27,7 @@ header h1{
     margin-bottom: 1rem;
 }
 
-.timer h2{
+.timer p{
     font-size: 1.1rem;
 }
 
@@ -52,6 +53,56 @@ header h1{
     transform: rotate(90deg);
 }
 
+.bold{
+    font-weight: bold;
+}
+
 .d-none{
     display: none;
+}
+#controls-desktop{
+    display: none;
+}
+
+@media only screen and (min-width: 600px) {
+    header h1{
+        font-size: 2.3rem;
+        margin: 1.8rem 0;
+    }
+    .timer p{
+        font-size: 1.8rem;
+    }
+
+    #controls-desktop{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    header h1{
+        font-size: 2.1rem;
+        margin: 1.8rem 0;
+    }
+    main{
+        display: flex;
+        justify-content: space-around;
+        width: 99vw;
+    }
+    .timer{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .timer p{
+        margin: 1rem;
+        font-size: 1.6rem;
+    }
+    #controls-desktop{
+        margin: 1rem;
+        font-size: 1.6rem;
+        display: block;
+    }
+    #controls-desktop div{
+        margin-top: 1rem;
+    }
 }

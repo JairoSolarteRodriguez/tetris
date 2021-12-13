@@ -10,12 +10,12 @@ let widthWindow = window.innerWidth;
 let widthShape;
 let heightShape;
 
-if(widthWindow <= 500 ){
+if(widthWindow <= 600 ){
     widthShape = 22;
     heightShape = 22;
-}else if(widthWindow > 500 && widthWindow < 800){
-    widthShape = 32;
-    heightShape = 32;
+}else if(widthWindow > 600 && widthWindow < 800){
+    widthShape = 37;
+    heightShape = 37;
 }else if(widthWindow > 800){
     widthShape = 42;
     heightShape = 42;
@@ -480,7 +480,9 @@ function init() {
     // check if the window is computer and remove the buttons
     if(widthWindow > 1400){
         let controls = document.getElementById('controls');
-        controls.style.display="none"
+        controls.style.display='none';
+        // let controlsDesktop = document.getElementById('controls-desktop');
+        // controlsDesktop.style.display = 'block';
     }
     
     // Interval in which the shape falls
