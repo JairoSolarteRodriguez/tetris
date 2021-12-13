@@ -30,11 +30,11 @@ header h1{
     font-size: 1.1rem;
 }
 
-.controls img{
+#controls img{
     width: 4.5rem;
 }
 
-.controls{
+#controls{
     margin-top: 1.2rem;
     display: flex;
     justify-content: space-between;
@@ -50,4 +50,8 @@ header h1{
 
 #right{
     transform: rotate(90deg);
+}
+
+.d-none{
+    display: none;
 }

@@ -21,8 +21,6 @@ if(widthWindow <= 500 ){
     heightShape = 42;
 }
 
-
-
 let widthCanvas = widthShape * 15;
 let heightCanvas = heightShape * 20;
 
@@ -458,10 +456,39 @@ function init() {
         },
     ]);
 
+    const downKey = document.getElementById('down');
+    downKey.addEventListener('click', ()=>{
+        shape.down();
+    });
+
+    // Keys for mobile devices
+    const leftKey = document.getElementById('left');
+    leftKey.addEventListener('click', ()=>{
+        shape.left();
+    });
+
+    const rightKey = document.getElementById('right');
+    rightKey.addEventListener('click', ()=>{
+        shape.right();
+    });
+
+    const rotateKey = document.getElementById('rotate');
+    rotateKey.addEventListener('click', ()=>{
+        shape.rotate();
+    });
+
+    // check if the window is computer and remove the buttons
+    if(widthWindow > 1400){
+        let controls = document.getElementById('controls');
+        controls.style.display="none"
+    }
+    
+    // Interval in which the shape falls
     setInterval(function () {
         shape.fallShape();
     }, 10000 / FPS);
 
+    // intervan in which update board
     setInterval(function () {
         boardTetris.drawBoard();
         shape.draw();
