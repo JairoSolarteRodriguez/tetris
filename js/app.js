@@ -18,9 +18,9 @@ let board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
 //Draw tiles
@@ -44,13 +44,16 @@ let tetromino = [
         [0,1,0,0],
     ],
     [
-        [1,1],
-        [1,1],
+        [0, 0, 0, 0],
+        [0, 1, 1, 0],
+        [0, 1, 1, 0],
+        [0, 0, 0, 0],
     ],
     [
-        [0,1,0],
-        [0,1,0],
-        [0,1,1],
+        [0, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 1, 0],
     ]
 ];
 
@@ -75,30 +78,24 @@ let colors = [
     "#fd971f",
 ];
 
-//refresh variable
-
-
+// Canva and context
+const CANVAS = document.getElementById('canvas');
+let ctx = CANVAS.getContext('2d');
+const FPS = 50;
 
 class Tetris{
-    //construir board
-    constructor(canvasId, board) {
-        // we choose the board that we pass by parameter
-        this.board = board;
-
-        //board variable
-        this.CANVAS = document.getElementById(canvasId);
-
-        // context variable
-        this.ctx = this.CANVAS.getContext('2d');
-        this.FPS = 50;
+    //construir tablero
+    constructor(board) {
+        // Obtenemos el tablero que pasamos por parametros
+        this.board = board;        
 
         //Define the width and height of the grid
         this.gridWidth = 41;
         this.gridHeigth = 41;
 
         // We define the width and height of the board according to the measurements of the grid
-        this.CANVAS.width = this.gridWidth * 15;
-        this.CANVAS.height = this.gridWidth * 20;
+        CANVAS.width = this.gridWidth * 15;
+        CANVAS.height = this.gridWidth * 20;
 
         //we choose the tetromino as a parameter
         this.tetromino = tetromino
@@ -108,49 +105,123 @@ class Tetris{
             //loop subscripts
             for (let ejeX = 0; ejeX < this.board[ejeY].length; ejeX++) {
                 if (this.board[ejeY][ejeX] == 0) {
-                    this.ctx.fillStyle = 'green';
-                    this.ctx.fillRect(ejeX * this.gridWidth, ejeY * this.gridHeigth, this.gridWidth, this.gridHeigth);
-                    this.ctx.strokeStyle = '#eee';
-                    this.ctx.strokeRect(ejeX * this.gridWidth, ejeY * this.gridHeigth, this.gridWidth, this.gridHeigth)
+                    ctx.fillStyle = 'green';
+                    ctx.fillRect(ejeX * this.gridWidth, ejeY * this.gridHeigth, this.gridWidth, this.gridHeigth);
+                    ctx.strokeStyle = '#eee';
+                    ctx.strokeRect(ejeX * this.gridWidth, ejeY * this.gridHeigth, this.gridWidth, this.gridHeigth)
                 }
             }
         }        
     }
+
     //Selection of colors and shapes randomly
-    getRandom () {
+    getRandom (array) {
         return Math.floor(Math.random() * array.length)
-    }
+    }     
+}
 
-    
-    //Random color is assigned to random Tetromino
-    tetrominoColorRandom () {
-    for (let ejeY = 0; ejeY < this.tetromino.length; ejeY++) {
-        if (this.tetromino[ejeY][ejeX] == 0) {
-            this.tetromino.fillStyle = this.getRandom(colors)
-            this.tetromino.fillRect() 
+let Shape = function(color, Random, x, y) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.widthShape = 41;
+    this.heightShape = 41;
+    this.Random = Random;
+
+    this.draw = function(){
+        // Tab with random color
+        for (let ejey = 0; ejey < tetromino[0][this.Random].length; ejey++) {
+            for (let ejex = 0; ejex < tetromino.length; ejex++) {
+                if (tetromino[ejey][ejex] != 0) {                    
+                    ctx.fillStyle = this.color;
+                    ctx.fillRect(this.x * this.widthShape, this.y * this.heightShape, this.widthShape, this.heightShape);
+                    ctx.strokeStyle = '#eee';
+                    ctx.strokeRect(this.x * this.widthShape, this.y * this.heightShape, this.widthShape, this.heightShape);
+                }
+            }    
+        }   
+    }     
+  
+    this.fijar = function(){
+        let currenPosition = [this.y, [this.x]];
+        for(let i; i<currenPosition.length; i++){
+            for(let j; j<currenPosition.length; j++){
+                let t = tablero[i][j];
+                console.log(t);
+            }
         }
-
-    }
     }
 
+    this.fallShape = function(){
+        this.y++;
+        let currenPosition = board[this.y][this.x];
+        this.colision(currenPosition, 'down');
+    }
+
+    this.down = function(){
+        this.y++;
+        let currenPosition = board[this.y][this.x];
+        this.colision(currenPosition, 'down');
+    }
+    this.right = function(){
+        this.x++;
+        let currenPosition = board[this.y][this.x];
+        this.colision(currenPosition, 'right');
+    }
+    this.left = function(){
+        this.x--;
+        let currenPosition = board[this.y][this.x];
+        this.colision(currenPosition, 'left');
+    }
+
+    this.colision = function(pos, direction){
+        if(pos != 0){
+            if(direction == 'down') this.y--;
+            if(direction == 'right') this.x--;
+            if(direction == 'left') this.x++;
+        }
+        if(pos == 1){
+            this.fijar();
+        }
+    }
+}
+
+class Game{
+    init(){
+        let boardTetris = new Tetris(board);
+        let color = boardTetris.getRandom(colors);
+        color = colors[color];
+        let Random = boardTetris.getRandom(tetromino);
+        Random = tetromino[0][Random];
+        let shape = new Shape(color, Random, 7, 0);
+        shape.draw();
 
 
+        //lectura de teclado
+        document.addEventListener('keydown', function(tecla){
+            if(tecla.key == 'ArrowDown'){
+                shape.down();
+            }else if(tecla.key == 'ArrowRight'){
+                shape.right();
+            }else if(tecla.key == 'ArrowLeft'){
+                shape.left();
+            }
+        });
+
+        setInterval(function() {
+            boardTetris = new Tetris(board);
+            shape.draw();
+        },1000/FPS);
+
+        // falling shape
+        setInterval(function() {
+            shape.fallShape();
+        },10000/FPS);
+    }
 }
 
 
- //
 
-
-
-
-
-
-// Creacion del objeto
-let Tablero = new Tetris('canvas', board); 
-    
-
-
-//create update 
-
-
+let game = new Game();
+game.init();
 
