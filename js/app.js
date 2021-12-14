@@ -10,13 +10,13 @@ let widthWindow = window.innerWidth;
 let widthShape;
 let heightShape;
 
-if(widthWindow <= 600 ){
+if (widthWindow <= 550) {
     widthShape = 22;
     heightShape = 22;
-}else if(widthWindow > 600 && widthWindow < 800){
+} else if (widthWindow > 550 && widthWindow < 800) {
     widthShape = 37;
     heightShape = 37;
-}else if(widthWindow > 800){
+} else if (widthWindow > 800) {
     widthShape = 42;
     heightShape = 42;
 }
@@ -261,11 +261,11 @@ let getRandom = function (array) {
     return Math.floor(Math.random() * array.length)
 }
 
-let Tetris = function(){
-    this.drawBoard = function(){
+let Tetris = function () {
+    this.drawBoard = function () {
         // Recorremos el primer nivel del array
         for (axisY = 0; axisY < board.length; axisY++) {
-            for (axisX = 0; axisX < board[axisY].length+1; axisX++) {
+            for (axisX = 0; axisX < board[axisY].length + 1; axisX++) {
                 if (board[axisY][axisX] == 0) {
                     ctx.fillStyle = 'green';
                     ctx.fillRect((axisX - 1) * widthShape, (axisY - topMargin + 1) * heightShape, widthShape, heightShape);
@@ -273,7 +273,7 @@ let Tetris = function(){
                     ctx.strokeRect((axisX - 1) * widthShape, (axisY - topMargin + 1) * heightShape, widthShape, heightShape);
                 }
             }
-        } 
+        }
     }
 }
 
@@ -306,13 +306,13 @@ let Shape = function () {
         }
     }
 
-    this.draw = function(){
-        for(axisY = 0; axisY < 4; axisY++){
-            for(axisX = 0; axisX < 4; axisX++){
-                if(tetromino[this.Random][this.angle][axisY][axisX] != 0){
+    this.draw = function () {
+        for (axisY = 0; axisY < 4; axisY++) {
+            for (axisX = 0; axisX < 4; axisX++) {
+                if (tetromino[this.Random][this.angle][axisY][axisX] != 0) {
                     ctx.fillStyle = this.color;
                     ctx.fillRect((this.x + axisX - 1) * widthShape, (this.y + axisY - topMargin) * heightShape, widthShape, heightShape);
-                    
+
                     ctx.strokeStyle = '#eee';
                     ctx.strokeRect((this.x + axisX - 1) * widthShape, (this.y + axisY - topMargin) * heightShape, widthShape, heightShape);
                 }
@@ -355,18 +355,18 @@ let Shape = function () {
         }
     }
 
-    this.resetBoard = function(){
+    this.resetBoard = function () {
         for (axisY = 0; axisY <= heightBoard; axisY++) {
             for (axisX = 0; axisX <= widthBoard; axisX++) {
                 board[axisY][axisX] = board2[axisY][axisX];
             }
         }
     }
-    
-    this.gameOver = function(){
+
+    this.gameOver = function () {
         let lose = false;
-        for(axisX = 1; axisX < widthBoard + 1; axisX++){
-            if(board[2][axisX] != 0){
+        for (axisX = 1; axisX < widthBoard + 1; axisX++) {
+            if (board[2][axisX] != 0) {
                 lose = true;
             }
         }
@@ -456,35 +456,55 @@ function init() {
         },
     ]);
 
+    // Keys for mobile devices
     const downKey = document.getElementById('down');
-    downKey.addEventListener('click', ()=>{
+    downKey.addEventListener('click', () => {
         shape.down();
     });
 
-    // Keys for mobile devices
     const leftKey = document.getElementById('left');
-    leftKey.addEventListener('click', ()=>{
+    leftKey.addEventListener('click', () => {
         shape.left();
     });
 
     const rightKey = document.getElementById('right');
-    rightKey.addEventListener('click', ()=>{
+    rightKey.addEventListener('click', () => {
         shape.right();
     });
 
     const rotateKey = document.getElementById('rotate');
-    rotateKey.addEventListener('click', ()=>{
+    rotateKey.addEventListener('click', () => {
         shape.rotate();
     });
 
+    // Keys for desktop devices
+    const downKey2 = document.getElementById('down2');
+    downKey2.addEventListener('click', () => {
+        shape.down();
+    });
+
+    const leftKey2 = document.getElementById('left2');
+    leftKey2.addEventListener('click', () => {
+        shape.left();
+    });
+
+    const rightKey2 = document.getElementById('right2');
+    rightKey2.addEventListener('click', () => {
+        shape.right();
+    });
+
+    const rotateKey2 = document.getElementById('rotate2');
+    rotateKey2.addEventListener('click', () => {
+        shape.rotate();
+    });
+
+
     // check if the window is computer and remove the buttons
-    if(widthWindow > 1400){
+    if (widthWindow > 1400) {
         let controls = document.getElementById('controls');
-        controls.style.display='none';
-        // let controlsDesktop = document.getElementById('controls-desktop');
-        // controlsDesktop.style.display = 'block';
+        controls.style.display = 'none';
     }
-    
+
     // Interval in which the shape falls
     setInterval(function () {
         shape.fallShape();
@@ -496,4 +516,3 @@ function init() {
         shape.draw();
     }, 1000 / FPS);
 }
-
