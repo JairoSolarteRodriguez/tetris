@@ -482,52 +482,59 @@ game.init();
 //TIMER
 
 
-let minutos = 0
+let minutos = 5
 let segundos = 0
 
 
 //count seconds
-function cargarSegundo (){
+function cargarSegundo() {
   let txtSegundos;
+  let txtMinutos;
 
-  if(segundos < 0){
+  if (segundos < 0) {
     segundos = 59
   }
 
   //show seconds on screen
   if (segundos < 10) {
-      txtSegundos = `0${segundos}`;
+    txtSegundos = `0${segundos}`;
   } else {
-      txtSegundos = segundos;
+    txtSegundos = segundos;
   }
   document.getElementById('segundos').innerHTML = txtSegundos;
-  segundos --;
+  segundos--;
+
+  function cargarMinutos(segundos) {
+
+    if (segundos == -1 && minutos !== 0) {
+      setTimeout(() => {
+        minutos--;
+      }, 500)
+    } else if (segundos == -1 && minutos == 0) {
+      setTimeout(() => {
+        minutos = 59;
+      }, 500)
+    }
+
+    if (minutos < 10) {
+      txtMinutos = `0${minutos}`;
+    } else {
+      txtMinutos = minutos;
+    }
+
+    document.getElementById('segundos').innerHTML = txtMinutos;
+  }
+
+  let minutosysegundos = `${document.getElementById('minutos').innerHTML = txtMinutos} ${document.getElementById('segundos').innerHTML = txtSegundos}`
 
   cargarMinutos(segundos)
 }
 
 //count minute
 
-function cargarMinutos (segundos){
-  let txtMinutos;
 
-  if(segundos == -1 && minutos !== 0){
-    setTimeout(() => {
-      minutos--;
-    },500)
-  } else if(segundos == -1 && minutos == 0){
-    setTimeout(() => {
-      minutos = 59;
-    },500)
-  }
 
-  if(minutos < 10){
-    txtMinutos = `0${minutos}`;
-  } else {
-    txtMinutos = minutos;
-  }
-    document.getElementById('minutos').innerHTML = txtMinutos;
-}
+
 
 
 setInterval(cargarSegundo, 1000);
