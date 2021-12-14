@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-*  {
+* {
     padding: 0;
     margin: 0;
     text-decoration: none;
@@ -8,93 +7,86 @@
 }
 
 
-
-
-main {
-=======
-/* main {
->>>>>>> main
-    display: flex;
-    width: 99vw;
-    justify-content: space-around;
-} */
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-header h1{
+header h1 {
     font-size: 1.3rem;
     margin: 1.2rem 0;
 }
 
-.timer{
+.timer {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
 }
 
-.timer p{
+.timer p {
     font-size: 1.1rem;
 }
 
-#controls img{
+#controls img {
     width: 4.5rem;
 }
 
-#controls{
+#controls {
     margin-top: 1.2rem;
     display: flex;
     justify-content: space-between;
 }
 
-#down, #down2{
+#down,
+#down2 {
     transform: rotate(180deg);
 }
 
-#left, #left2{
+#left,
+#left2 {
     transform: rotate(270deg);
 }
 
-#right, #right2{
+#right,
+#right2 {
     transform: rotate(90deg);
 }
 
 
-.bold{
+.bold {
     font-weight: bold;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
-#controls-desktop{
+
+#controls-desktop {
     display: none;
 }
 
 @media only screen and (min-width: 600px) {
-    header h1{
+    header h1 {
         font-size: 2.3rem;
         margin: 1.8rem 0;
     }
-    .timer p{
+
+    .timer p {
         font-size: 1.8rem;
     }
 
-    #controls-desktop{
+    #controls-desktop {
         display: none;
     }
 }
 
-<<<<<<< HEAD
 
 
 .cont-temporizador {
@@ -114,7 +106,7 @@ header h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(80,80,80);
+    background-color: rgb(80, 80, 80);
     box-shadow: 0px 0px 6px 2px #727272 inset;
     color: #ffffff;
     font-size: 40px;
@@ -125,7 +117,7 @@ header h1{
     border-radius: 5px;
 }
 
-.cont-temporizador .bloque div p{
+.cont-temporizador .bloque div p {
     font-size: 11px;
     font-weight: bold;
     color: #dedede;
@@ -134,33 +126,38 @@ header h1{
 header {
     text-align: center;
     margin-bottom: 3rem;
-=======
-@media only screen and (min-width: 1300px) {
-    header h1{
-        font-size: 2.1rem;
-        margin: 1.8rem 0;
+
+    @media only screen and (min-width: 1300px) {
+        header h1 {
+            font-size: 2.1rem;
+            margin: 1.8rem 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-around;
+            width: 99vw;
+        }
+
+        .timer {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .timer p {
+            margin: 1rem;
+            font-size: 1.6rem;
+        }
+
+        #controls-desktop {
+            margin: 1rem;
+            font-size: 1.6rem;
+            display: block;
+        }
+
+        #controls-desktop div {
+            margin-top: 1rem;
+        }
     }
-    main{
-        display: flex;
-        justify-content: space-around;
-        width: 99vw;
-    }
-    .timer{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-    .timer p{
-        margin: 1rem;
-        font-size: 1.6rem;
-    }
-    #controls-desktop{
-        margin: 1rem;
-        font-size: 1.6rem;
-        display: block;
-    }
-    #controls-desktop div{
-        margin-top: 1rem;
-    }
->>>>>>> main
 }
