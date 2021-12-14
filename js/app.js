@@ -565,6 +565,7 @@ function updateCountDown() {
     time--;
 
     if(minutes == 0 && seconds == 0){
+        let shape = new Shape();
         shape.gameOver();
     }
 
