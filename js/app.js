@@ -261,6 +261,8 @@ let getRandom = function (array) {
     return Math.floor(Math.random() * array.length)
 }
 
+
+
 let Tetris = function () {
     this.drawBoard = function () {
         // Recorremos el primer nivel del array
@@ -276,6 +278,8 @@ let Tetris = function () {
         }
     }
 }
+
+
 
 let Shape = function () {
     this.x = 0;
@@ -355,6 +359,10 @@ let Shape = function () {
         }
     }
 
+    this.shapePause = function () {
+        if
+    }
+
     this.resetBoard = function () {
         for (axisY = 0; axisY <= heightBoard; axisY++) {
             for (axisX = 0; axisX <= widthBoard; axisX++) {
@@ -402,6 +410,8 @@ let Shape = function () {
     // launch new shape
     this.newShape();
 }
+
+
 
 
 
