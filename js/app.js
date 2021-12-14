@@ -329,99 +329,100 @@ let Shape = function () {
       }
     }
   }
-}
 
-this.right = function () {
-  if (this.colision(this.angle, this.y, this.x + 1) == false) {
-    this.x++;
+
+  this.right = function () {
+    if (this.colision(this.angle, this.y, this.x + 1) == false) {
+      this.x++;
+    }
   }
-}
 
-this.down = function () {
-  if (this.colision(this.angle, this.y, this.x) == false) {
-    this.y++;
-  }
-}
-
-this.left = function () {
-  if (this.colision(this.angle, this.y, this.x - 1) == false) {
-    this.x--;
-  }
-  break;
-    case false:
-    this.y++;
-    default:
-    break;
-}
-
-
-this.fallShape = function () {
-  switch (this.colision(this.angle, this.y, this.x)) {
-    case true:
-      this.y--;
-      this.fix();
-      this.newShape();
-      if (this.gameOver()) {
-        this.resetBoard();
-      }
-      break;
-    case false:
+  this.down = function () {
+    if (this.colision(this.angle, this.y, this.x) == false) {
       this.y++;
-    default:
+    }
+  }
+
+  this.left = function () {
+    if (this.colision(this.angle, this.y, this.x - 1) == false) {
+      this.x--;
+    }
+    break;
+      case false:
+      this.y++;
+      default:
       break;
   }
-}
 
-this.resetBoard = function () {
-  for (axisY = 0; axisY <= heightBoard; axisY++) {
-    for (axisX = 0; axisX <= widthBoard; axisX++) {
-      board[axisY][axisX] = board2[axisY][axisX];
+
+  this.fallShape = function () {
+    switch (this.colision(this.angle, this.y, this.x)) {
+      case true:
+        this.y--;
+        this.fix();
+        this.newShape();
+        if (this.gameOver()) {
+          this.resetBoard();
+        }
+        break;
+      case false:
+        this.y++;
+      default:
+        break;
     }
   }
-}
 
-
-this.colision = function (newAngle, newY, newX) {
-  let result = false;
-
-  this.gameOver = function () {
-    let lose = false;
-    for (axisX = 1; axisX < widthBoard + 1; axisX++) {
-      if (board[2][axisX] != 0) {
-        lose = true;
+  this.resetBoard = function () {
+    for (axisY = 0; axisY <= heightBoard; axisY++) {
+      for (axisX = 0; axisX <= widthBoard; axisX++) {
+        board[axisY][axisX] = board2[axisY][axisX];
       }
     }
-    return lose;
   }
+
 
   this.colision = function (newAngle, newY, newX) {
-    let result = false;
+  let result = false;
 
-    for (axisY = 0; axisY < 4; axisY++) {
-      for (axisX = 0; axisX < 4; axisX++) {
-        if (tetromino[this.Random][newAngle][axisY][axisX] > 0) {
-          if (board[newY + axisY][newX + axisX] > 0) {
-            result = true;
+    this.gameOver = function () {
+      let lose = false;
+      for (axisX = 1; axisX < widthBoard + 1; axisX++) {
+        if (board[2][axisX] != 0) {
+          lose = true;
+        }
+      }
+      return lose;
+    }
+
+    this.colision = function (newAngle, newY, newX) {
+      let result = false;
+
+      for (axisY = 0; axisY < 4; axisY++) {
+        for (axisX = 0; axisX < 4; axisX++) {
+          if (tetromino[this.Random][newAngle][axisY][axisX] > 0) {
+            if (board[newY + axisY][newX + axisX] > 0) {
+              result = true;
+            }
+          }
+        }
+      }
+
+      return result;
+    }
+
+    this.fix = function () {
+      for (axisY = 0; axisY < 4; axisY++) {
+        for (axisX = 0; axisX < 4; axisX++) {
+          if (tetromino[this.Random][this.angle][axisY][axisX] > 0) {
+            board[this.y + axisY][this.x + axisX] = tetromino[this.Random][this.angle][axisY][axisX];
           }
         }
       }
     }
 
-    return result;
-  }
-
-  this.fix = function () {
-    for (axisY = 0; axisY < 4; axisY++) {
-      for (axisX = 0; axisX < 4; axisX++) {
-        if (tetromino[this.Random][this.angle][axisY][axisX] > 0) {
-          board[this.y + axisY][this.x + axisX] = tetromino[this.Random][this.angle][axisY][axisX];
-        }
-      }
-    }
-  }
-
-  // launch new shape
-  this.newShape();
+    // launch new shape
+      this.newShape();
+  
 }
 
 
