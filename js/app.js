@@ -261,8 +261,6 @@ let getRandom = function (array) {
     return Math.floor(Math.random() * array.length)
 }
 
-
-
 let Tetris = function () {
     this.drawBoard = function () {
         // Recorremos el primer nivel del array
@@ -278,8 +276,6 @@ let Tetris = function () {
         }
     }
 }
-
-
 
 let Shape = function () {
     this.x = 0;
@@ -359,9 +355,11 @@ let Shape = function () {
         }
     }
 
-    this.shapePause = function () {
-        if
-    }
+    this.btnPause = function fPause () {
+        reset = resets;
+    } 
+
+
 
     this.resetBoard = function () {
         for (axisY = 0; axisY <= heightBoard; axisY++) {
@@ -413,8 +411,6 @@ let Shape = function () {
 
 
 
-
-
 function init() {
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
@@ -425,6 +421,7 @@ function init() {
     let boardTetris = new Tetris();
     boardTetris.drawBoard();
 
+    
     let shape = new Shape();
     shape.draw();
 
@@ -465,6 +462,7 @@ function init() {
             this: my_scope,
         },
     ]);
+
 
     // Keys for mobile devices
     const downKey = document.getElementById('down');
@@ -516,15 +514,21 @@ function init() {
     }
 
     // Interval in which the shape falls
+
+     
+
     setInterval(function () {
         shape.fallShape();
     }, 10000 / FPS);
+
+
 
     // intervan in which update board
     setInterval(function () {
         boardTetris.drawBoard();
         shape.draw();
     }, 1000 / FPS);
+
 }
 
 
@@ -548,7 +552,5 @@ function updateCountDown() {
     time--;
 
 }
-
-
 
 

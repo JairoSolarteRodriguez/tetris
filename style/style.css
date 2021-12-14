@@ -94,6 +94,25 @@ span {
     color: aqua;
 }
 
+
+.btnTotals {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.btn {
+    font-family: 'comic';
+    height: 1.8em;
+    width: 2.9em;
+    font-size: 2em;
+    background: linear-gradient(70deg, #C0DDE3, aqua);
+    border: solid 1px white;
+    color: #333;
+    border-radius: 0.4em;
+    margin: 0em 0.5em 0.2em;
+}
+
 @media only screen and (max-width: 600px) {
 
     * {
@@ -139,6 +158,10 @@ span {
     #controls-desktop{
         display: none;
     }
+
+    a {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 1300px) {
@@ -162,6 +185,7 @@ span {
 
 
     .timer{
+        height: 15em;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -183,6 +207,10 @@ span {
 
     #controls-desktop div{
         margin-top: 1rem;
+    }
+
+    #controls-desktop div p {
+        margin-left: 1.5em;
     }
 
     #controls {
