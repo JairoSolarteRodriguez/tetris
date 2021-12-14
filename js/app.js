@@ -362,6 +362,12 @@ let Shape = function () {
         }
     }
 
+    this.btnPause = function fPause () {
+        reset = resets;
+    } 
+
+
+
     this.resetBoard = function () {
         for (axisY = 0; axisY <= heightBoard; axisY++) {
             for (axisX = 0; axisX <= widthBoard; axisX++) {
@@ -442,6 +448,7 @@ function init() {
     let boardTetris = new Tetris();
     boardTetris.drawBoard();
 
+    
     let shape = new Shape();
     shape.draw();
 
@@ -482,6 +489,7 @@ function init() {
             this: my_scope,
         },
     ]);
+
 
     // Keys for mobile devices
     const downKey = document.getElementById('down');
@@ -533,15 +541,21 @@ function init() {
     }
 
     // Interval in which the shape falls
+
+     
+
     setInterval(function () {
         shape.fallShape();
     }, 10000 / FPS);
+
+
 
     // intervan in which update board
     setInterval(function () {
         boardTetris.drawBoard();
         shape.draw();
     }, 1000 / FPS);
+
 }
 
 
