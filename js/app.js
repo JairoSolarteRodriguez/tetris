@@ -267,9 +267,9 @@ let Tetris = function () {
         for (axisY = 0; axisY < board.length; axisY++) {
             for (axisX = 0; axisX < board[axisY].length + 1; axisX++) {
                 if (board[axisY][axisX] == 0) {
-                    ctx.fillStyle = 'green';
+                    ctx.fillStyle = "#F9F9F0";
                     ctx.fillRect((axisX - 1) * widthShape, (axisY - topMargin + 1) * heightShape, widthShape, heightShape);
-                    ctx.strokeStyle = '#eee';
+                    ctx.strokeStyle = '#CFCFCF';
                     ctx.strokeRect((axisX - 1) * widthShape, (axisY - topMargin + 1) * heightShape, widthShape, heightShape);
                 }
             }
@@ -516,3 +516,30 @@ function init() {
         shape.draw();
     }, 1000 / FPS);
 }
+
+
+
+
+//count down
+
+const startingMinutes = 5;
+let time =startingMinutes * 60;
+
+const countDownEl = document.getElementById("countDown");
+
+setInterval(updateCountDown, 1000);
+
+function updateCountDown() {
+    const minutes = Math.floor(time / 60)
+    let seconds = time % 60;
+
+    seconds = seconds < 5 ? '0' + seconds : seconds;
+
+    countDownEl.innerHTML = `${minutes}: ${seconds}`;
+    time--
+
+}
+
+
+
+

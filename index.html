@@ -11,32 +11,34 @@
 </head>
 <body onload="init()">
     <header>
-        <h1>El Mejor Juego de Tetris del Mundo</h1>
+        <img src="./images/TETRIS LOVING CODERS.png" alt="">
     </header>
     <main>
-        <div class="timer">
-            <p><span class="bold">Tiempo:</span> 2:30</p>
-            <p><span class="bold">Puntaje:</span> 1500</p>
+        <section class="information">
+            <div class="timer">
+                <p id="countDown" ><span class="bold">Tiempo:</span></p>
+                <p><span class="bold">Puntaje:</span> 1500</p>
+            </div>
             <div id="controls-desktop">
-                <span class="bold">Controles:</span><br>
-                <div>
+                <div class="bold"><p>Controles:</p></div><br>
+                <div class="">
                     <img src="./images/arrow-up.png" id="down2" width="50px">
                     <span>Moverse abajo</span><br>
-                    </div>
-                    <div>
-                        <img src="./images/arrow-up.png" id="left2" width="50px">
-                        <span>Moverse izquierda</span><br>
-                    </div>
-                    <div>
-                        <img src="./images/arrow-up.png" id="right2" width="50px">
-                        <span>Moverse derecha</span><br>
-                    </div>
-                    <div>
-                        <img src="./images/arrow-up.png" id="rotate2" width="50px">
-                        <span>Rotar objeto</span>
-                    </div>
+                </div>
+                <div>
+                    <img src="./images/arrow-up.png" id="left2" width="50px">
+                    <span>Moverse izquierda</span><br>
+                </div>
+                <div>
+                    <img src="./images/arrow-up.png" id="right2" width="50px">
+                    <span>Moverse derecha</span><br>
+                </div>
+                <div>
+                    <img src="./images/arrow-up.png" id="rotate2" width="50px">
+                    <span>Rotar objeto</span>
+                </div>
             </div>
-        </div>
+        </section>
         <canvas id="canvas"></canvas>
         <div id="controls">
             <img src="./images/arrow-up.png" id="down">

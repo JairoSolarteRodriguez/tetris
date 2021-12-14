@@ -1,163 +1,189 @@
-* {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+@font-face {
+    font-family: 'comic';
+    src: url(/fonts/ComicNeue-Bold.ttf);
 }
 
 
-* {
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url(/images/Background.jpg);
+    background-size: 100vw 100vh;
 }
 
-header h1 {
+header {
+    margin: 1.5rem;
+}
+
+header img {
+    width: 70vw;   
+}
+
+canvas {
+    width: 80vw;
+    height: 85vh;
+}
+
+h1{
     font-size: 1.3rem;
     margin: 1.2rem 0;
 }
 
-.timer {
+p {
+    font-family: 'comic';
+}
+
+span {
+    font-family: 'comic';
+}
+
+.timer{
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
 }
 
-.timer p {
-    font-size: 1.1rem;
+.timer p{
+    color: aqua;
 }
 
-#controls img {
+#controls img{
     width: 4.5rem;
 }
 
-#controls {
+#controls{
     margin-top: 1.2rem;
     display: flex;
     justify-content: space-between;
+    color: aqua;
 }
 
-#down,
-#down2 {
+#down, #down2{
     transform: rotate(180deg);
 }
 
-#left,
-#left2 {
+#left, #left2{
     transform: rotate(270deg);
 }
 
-#right,
-#right2 {
+#right, #right2{
     transform: rotate(90deg);
 }
 
 
-.bold {
+.bold{
     font-weight: bold;
 }
 
-.d-none {
+.d-none{
     display: none;
 }
-
-#controls-desktop {
+#controls-desktop{
     display: none;
+    color: aqua;
 }
 
-@media only screen and (min-width: 600px) {
-    header h1 {
-        font-size: 2.3rem;
-        margin: 1.8rem 0;
+@media only screen and (max-width: 600px) {
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
-    .timer p {
-        font-size: 1.8rem;
+    body {
+        width: 100vw;
+        height: 100vh;
     }
 
-    #controls-desktop {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header{
+        margin: 0.8rem;
+    }
+
+    header img {
+        width: 85vw;
+    }
+
+    
+    .timer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1rem;
+    }
+
+    #controls-desktop{
         display: none;
     }
 }
 
+@media only screen and (min-width: 1300px) {
+    
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 99vw;
+    }
+
+    .information {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-color: white;
+        border-width: 1px;
+        border-style: solid;
+        width: 18vw;
+        height: 85vh;
+    }
 
 
-.cont-temporizador {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-}
+    canvas {
+        width: 30vw;
+        height: 85vh;
+    }
 
-.cont-temporizador .bloque {
-    margin: 0px 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.cont-temporizador .bloque div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(80, 80, 80);
-    box-shadow: 0px 0px 6px 2px #727272 inset;
-    color: #ffffff;
-    font-size: 40px;
-    font-weight: bold;
-    width: 100px;
-    height: 70px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-}
+    .timer{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;        
+    }
+    .timer p{
+        margin: 1rem;
+        font-size: 2rem;
+        margin-bottom: 5rem;
+    }
 
-.cont-temporizador .bloque div p {
-    font-size: 11px;
-    font-weight: bold;
-    color: #dedede;
-}
+    #controls-desktop{
+        margin: 1rem;
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-family: 
+    }
+    #controls-desktop div{
+        margin-top: 1rem;
+    }
 
-header {
-    text-align: center;
-    margin-bottom: 3rem;
-
-    @media only screen and (min-width: 1300px) {
-        header h1 {
-            font-size: 2.1rem;
-            margin: 1.8rem 0;
-        }
-
-        main {
-            display: flex;
-            justify-content: space-around;
-            width: 99vw;
-        }
-
-        .timer {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .timer p {
-            margin: 1rem;
-            font-size: 1.6rem;
-        }
-
-        #controls-desktop {
-            margin: 1rem;
-            font-size: 1.6rem;
-            display: block;
-        }
-
-        #controls-desktop div {
-            margin-top: 1rem;
-        }
+    #controls {
+        display: none;
     }
 }
