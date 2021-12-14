@@ -19,7 +19,7 @@ if (widthWindow <= 550) {
 } else if (widthWindow > 800 && widthWindow < 1025) {
     widthShape = 33;
     heightShape = 33;
-}else if (widthWindow > 1025 && widthWindow <= 1440) {
+}else if (widthWindow > 1025 && widthWindow <= 1366) {
     widthShape = 33;
     heightShape = 33;
 }else{
