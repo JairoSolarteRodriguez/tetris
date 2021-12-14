@@ -343,6 +343,7 @@ let Shape = function () {
             case true:
                 this.y--;
                 this.fix();
+                this.clear();
                 this.newShape();
                 if (this.gameOver()) {
                     this.resetBoard();
@@ -371,6 +372,29 @@ let Shape = function () {
             }
         }
         return lose;
+    }
+
+    this.clear = function(){
+        let fullRow;
+        for(axisY = topMargin; axisY < heightBoard + 1; axisY++){
+            fullRow = true;
+
+            for(axisX = 1; axisX < widthBoard + 1; axisX++){
+                if(board[axisY][axisX] == 0){
+                    fullRow = false;
+                }
+            }
+
+            if(fullRow == true){
+                for(axisX = 1; axisX < widthBoard + 1; axisX++){
+                    board[axisY][axisX] = 0;
+                }
+            }
+        }
+    }
+
+    this.setShapes = function(){
+
     }
 
     this.colision = function (newAngle, newY, newX) {
@@ -538,7 +562,3 @@ function updateCountDown() {
     time--;
 
 }
-
-
-
-
