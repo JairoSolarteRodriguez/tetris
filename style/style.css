@@ -141,7 +141,7 @@ span {
     }
 }
 
-@media only screen and (min-width: 1300px) {
+@media only screen and (min-width: 1024px) {
     
     main{
         display: flex;
@@ -154,7 +154,6 @@ span {
     .information {
         display: flex;
         flex-direction: column;
-        align-items: center;
         border: 1px solid white;
         height: 87vh;
     }
@@ -165,12 +164,11 @@ span {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;        
     }
     .timer p{
         margin: 1rem;
         font-size: 2rem;
-        margin-bottom: 5rem;
+        margin-bottom: 3rem;
     }
 
     #controls-desktop{

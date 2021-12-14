@@ -14,9 +14,15 @@ if (widthWindow <= 550) {
     widthShape = 22;
     heightShape = 22;
 } else if (widthWindow > 550 && widthWindow < 800) {
-    widthShape = 38;
-    heightShape = 38;
-} else if (widthWindow > 800) {
+    widthShape = 30;
+    heightShape = 30;
+} else if (widthWindow > 800 && widthWindow < 1025) {
+    widthShape = 33;
+    heightShape = 33;
+}else if (widthWindow > 1025 && widthWindow <= 1440) {
+    widthShape = 33;
+    heightShape = 33;
+}else{
     widthShape = 41;
     heightShape = 41;
 }
@@ -393,9 +399,6 @@ let Shape = function () {
         }
     }
 
-    this.setShapes = function(){
-
-    }
 
     this.colision = function (newAngle, newY, newX) {
         let result = false;
@@ -524,7 +527,7 @@ function init() {
 
 
     // check if the window is computer and remove the buttons
-    if (widthWindow > 1400) {
+    if (widthWindow > 1020) {
         let controls = document.getElementById('controls');
         controls.style.display = 'none';
     }
@@ -560,5 +563,9 @@ function updateCountDown() {
 
     countDownEl.innerHTML = `<span>${minutes}:${seconds}</span>`;
     time--;
+
+    if(minutes == 0 && seconds == 0){
+        shape.gameOver();
+    }
 
 }
