@@ -14,11 +14,11 @@ if (widthWindow <= 550) {
     widthShape = 22;
     heightShape = 22;
 } else if (widthWindow > 550 && widthWindow < 800) {
-    widthShape = 37;
-    heightShape = 37;
+    widthShape = 38;
+    heightShape = 38;
 } else if (widthWindow > 800) {
-    widthShape = 42;
-    heightShape = 42;
+    widthShape = 41;
+    heightShape = 41;
 }
 
 let widthCanvas = widthShape * 15;
@@ -531,7 +531,6 @@ function init() {
 
 
 //count down
-
 const startingMinutes = 5;
 let time =startingMinutes * 60;
 
@@ -545,8 +544,8 @@ function updateCountDown() {
 
     seconds = seconds < 5 ? '0' + seconds : seconds;
 
-    countDownEl.innerHTML = `${minutes}: ${seconds}`;
-    time--
+    countDownEl.innerHTML = `<span>${minutes}:${seconds}</span>`;
+    time--;
 
 }
 
